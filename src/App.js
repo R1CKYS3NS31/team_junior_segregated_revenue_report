@@ -1,18 +1,17 @@
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
-import './App.css';
-import { DateInput } from "./components/DateInput";
+import "./App.css";
+import { TestComponent } from "./components/TestComponent";
 import Dashboard from "./pages/Dashboard";
-
 
 function App() {
   return (
     <Router>
       <Routes>
-         <Route path="/" exact element={<Dashboard/>}/>
-         <Route path="/dateinput" element={<DateInput/>}/>
+        <Route path="/" exact element={<Dashboard />} />
+        <Route path="/testcomponent" element={<TestComponent />} />
 
-       {/* none existing routes */}
-       <Route
+        {/* none existing routes */}
+        <Route
           path="*"
           element={
             <main
@@ -47,7 +46,6 @@ function App() {
           }
         />
       </Routes>
-     
     </Router>
   );
 }
