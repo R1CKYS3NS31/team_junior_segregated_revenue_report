@@ -68,66 +68,21 @@ const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
 
 const data = [
   {
-    name: "Jan",
-    buy: 4000,
-    sell: 2400,
+    name: 'laboratory',
+    amount: labTotal
   },
   {
-    name: "Feb",
-    buy: 3000,
-    sell: 1398,
+    name: "Registration",
+    amount: regTotal
   },
   {
-    name: "Mar",
-    buy: 2000,
-    sell: 9800,
+    name: "Pharmacy",
+    amount: pharmTotal
   },
   {
-    name: "Apr",
-    buy: 2780,
-    sell: 3908,
-  },
-  {
-    name: "May",
-    buy: 1890,
-    sell: 4800,
-  },
-  {
-    name: "Jun",
-    buy: 2390,
-    sell: 3800,
-  },
-  {
-    name: "Jul",
-    buy: 3490,
-    sell: 4300,
-  },
-  {
-    name: "Aug",
-    buy: 3490,
-    sell: 4300,
-  },
-  {
-    name: "Sep",
-    buy: 3490,
-    sell: 4300,
-  },
-  {
-    name: "Oct",
-    buy: 3490,
-    sell: 4300,
-  },
-  {
-    name: "Nov",
-    buy: 3490,
-    sell: 4300,
-  },
-  {
-    name: "Dec",
-    buy: 3490,
-    sell: 4300,
+    name: "Radiology",
+    amount: radTotal
   }
-
 ];
 
 export default function Chart() {
@@ -148,13 +103,15 @@ export default function Chart() {
         bottom: 5
       }}
     >
-      <CartesianGrid strokeDasharray="3 3" />
+      <CartesianGrid strokeDasharray="3" />
       <XAxis dataKey="name" />
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="buy" fill="#8884d8" />
-      <Bar dataKey="sell" fill="#82ca9d" />
+      <Bar dataKey="amount" fill="#8884d8" />
+      {/* <Bar dataKey="amount" fill="blue" />
+      <Bar dataKey="amount" fill="yellow" />
+      <Bar dataKey="amount" fill="black" /> */}
     </BarChart>      
       </ResponsiveContainer>
     </React.Fragment>
