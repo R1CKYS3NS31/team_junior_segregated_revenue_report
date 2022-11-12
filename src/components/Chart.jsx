@@ -2,12 +2,56 @@ import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
 import Title from './Title';
+import jsonData from '../data/revenue.json'
+import { indexes } from 'd3';
 
 // Generate Sales Data
 function createData(time, amount) {
   return { time, amount };
 }
 
+// details.forEach(detail => {
+//   console.log(detail);
+// })
+
+
+// const filtered_dets = details.filter(det => {
+//   return det.userId == 1;
+// }) 
+// console.log(filtered_dets);
+
+
+// const mapped_det = details.map(det =>{
+//   return det.id;
+// })
+// console.log(mapped_det)
+
+const laboratory = jsonData["revenue"][0]["department"][0]["laboratory"]
+const registration = jsonData["revenue"][0]["department"][0]["registration"]
+
+const laboratory_details = laboratory.map((data, index)=>{return data})
+const registration_details = registration.map((data, index)=>{return data})
+
+let lab_total = 0;
+let reg_total = 0;
+
+for (var i=0; i < laboratory_details.length; i++) {
+  const lab_amount = laboratory_details[i]["amount_paid"]
+  lab_total += lab_amount
+
+}
+
+for (var n=0; n < registration_details.length; n++) {
+  const reg_amount = registration_details[n]["amount_paid"]
+  reg_total += reg_amount
+}
+
+
+console.log(lab_total)
+console.log(reg_total)
+
+
+// {console.log(jsonData["revenue"][0]["department"][0]["laboratory"][0]["amount_paid"])}
 const data = [
   createData('00:00', 0),
   createData('03:00', 300),

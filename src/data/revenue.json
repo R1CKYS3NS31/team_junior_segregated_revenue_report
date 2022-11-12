@@ -1,56 +1,48 @@
 {
-  
-    "revenue": [
+    "revenue":[
         {
-            "id": 1,
-            "patient_name": "Fred Njonge",
-            "registration": 400,
-            "laboratory": 1700,
-            "procedures": 800,
-            "pharmacy":500,
-            "radiology":500           
-         
-        },
-        {
-            "id": 2,
-            "patient_name": "Ian Morvin",
-            "registration": 100,
-            "laboratory": 10000,
-            "procedures":2100,
-            "pharmacy":200,
-            "radiology":300           
-         
-        },
-        {
-            "id": 3,
-            "patient_name": "Derrickon Ndambuki",
-            "registration": 1000,
-            "laboratory": 1000,
-            "procedures": 1000,
-            "pharmacy":200,
-            "radiology":3000           
-         
-        },
-        {
-            "id": 4,
-            "patient_name": "Trizah Nabwire",
-            "registration": 1000,
-            "laboratory": 1000,
-            "procedures": 1000,
-            "pharmacy":200,
-            "radiology":3000           
-         
-        },
-        {
-            "id": 5,
-            "patient_name": "Emmaculate Chelangat",
-            "registration": 1000,
-            "laboratory": 1000,
-            "procedures": 1000,
-            "pharmacy":200,
-            "radiology":3000           
-         
+            "department":[
+        
+                {
+                    "registration":[
+                        {
+                            "id":1,
+                            "patient_name": "Fred Njonge",
+                            "amount_paid":200,
+                            "date":"07/2/3/2022"
+                        },
+                        {
+                            "id":2,
+                            "patient_name": "Ian Odhiambo",
+                            "amount_paid":200,
+                            "date":"07/2/2022"
+                        }
+                    ],
+
+                    "laboratory":[
+                        {
+                            "id":1,
+                            "patient_name": "Ricky Chelagat",
+                            "amount_paid":1200,
+                            "date":"07/2/3/2022"
+                        },
+                        {
+                            "id":2,
+                            "patient_name": "Triza Ndambuki",
+                            "amount_paid":2200,
+                            "date":"07/2/2022"
+                        }
+                    ]
+                   
+                }
+        
+        
+            ]
+        
         }
+
     ]
-}
+   }
+
+
 
