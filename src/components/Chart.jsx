@@ -1,9 +1,18 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
-import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
+import {
+  ResponsiveContainer,
+  BarChart,
+  Tooltip,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Legend
+} from "recharts";
 import Title from './Title';
 import jsonData from '../data/revenue.json'
-import { indexes } from 'd3';
+// import { indexes } from 'd3';
 
 // Generate Sales Data
 function createData(time, amount) {
@@ -67,15 +76,66 @@ console.log(rad_total)
 
 // {console.log(jsonData["revenue"][0]["department"][0]["laboratory"][0]["amount_paid"])}
 const data = [
-  createData('00:00', 0),
-  createData('03:00', 300),
-  createData('06:00', 600),
-  createData('09:00', 800),
-  createData('12:00', 1500),
-  createData('15:00', 2000),
-  createData('18:00', 2400),
-  createData('21:00', 2400),
-  createData('24:00', undefined),
+  {
+    name: "Jan",
+    buy: 4000,
+    sell: 2400,
+  },
+  {
+    name: "Feb",
+    buy: 3000,
+    sell: 1398,
+  },
+  {
+    name: "Mar",
+    buy: 2000,
+    sell: 9800,
+  },
+  {
+    name: "Apr",
+    buy: 2780,
+    sell: 3908,
+  },
+  {
+    name: "May",
+    buy: 1890,
+    sell: 4800,
+  },
+  {
+    name: "Jun",
+    buy: 2390,
+    sell: 3800,
+  },
+  {
+    name: "Jul",
+    buy: 3490,
+    sell: 4300,
+  },
+  {
+    name: "Aug",
+    buy: 3490,
+    sell: 4300,
+  },
+  {
+    name: "Sep",
+    buy: 3490,
+    sell: 4300,
+  },
+  {
+    name: "Oct",
+    buy: 3490,
+    sell: 4300,
+  },
+  {
+    name: "Nov",
+    buy: 3490,
+    sell: 4300,
+  },
+  {
+    name: "Dec",
+    buy: 3490,
+    sell: 4300,
+  }
 ];
 
 export default function Chart() {
@@ -85,44 +145,25 @@ export default function Chart() {
     <React.Fragment>
       <Title>Today</Title>
       <ResponsiveContainer>
-        <LineChart
-          data={data}
-          margin={{
-            top: 16,
-            right: 16,
-            bottom: 0,
-            left: 24,
-          }}
-        >
-          <XAxis
-            dataKey="time"
-            stroke={theme.palette.text.secondary}
-            style={theme.typography.body2}
-          />
-          <YAxis
-            stroke={theme.palette.text.secondary}
-            style={theme.typography.body2}
-          >
-            <Label
-              angle={270}
-              position="left"
-              style={{
-                textAnchor: 'middle',
-                fill: theme.palette.text.primary,
-                ...theme.typography.body1,
-              }}
-            >
-              Sales ($)
-            </Label>
-          </YAxis>
-          <Line
-            isAnimationActive={false}
-            type="monotone"
-            dataKey="amount"
-            stroke={theme.palette.primary.main}
-            dot={false}
-          />
-        </LineChart>
+      <BarChart
+      width={800}
+      height={400}
+      data={data}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Bar dataKey="buy" fill="#8884d8" />
+      <Bar dataKey="sell" fill="#82ca9d" />
+    </BarChart>      
       </ResponsiveContainer>
     </React.Fragment>
   );
