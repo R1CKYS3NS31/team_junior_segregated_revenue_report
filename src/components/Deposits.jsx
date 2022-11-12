@@ -11,17 +11,17 @@ function preventDefault(event) {
 export default function Deposits() {
   return (
     <React.Fragment>
-      <Title>Recent Revenue</Title>
+      <Title>Total Revenue</Title>
       <Typography component="p" variant="h4">
         KES. 3,024.00
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
-        on 15 March, 2019
+        on 15 November, 2022
       </Typography>
       <div>
-        <Link color="primary" href="#" onClick={preventDefault}>
+        {/* <Link color="primary" href="#" onClick={preventDefault}>
           View balance
-        </Link>
+        </Link> */}
       </div>
     </React.Fragment>
   );
