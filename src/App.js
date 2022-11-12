@@ -1,12 +1,14 @@
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import './App.css';
-import { Home } from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
+
 
 function App() {
   return (
     <Router>
       <Routes>
-         <Route path="/" exact element={<Home/>}/>
+         <Route path="/" exact element={<Dashboard/>}/>
+
        {/* none existing routes */}
        <Route
           path="*"
