@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
 import './App.css';
+import { DateInput } from "./components/DateInput";
 import Dashboard from "./pages/Dashboard";
 
 
@@ -8,6 +9,7 @@ function App() {
     <Router>
       <Routes>
          <Route path="/" exact element={<Dashboard/>}/>
+         <Route path="/dateinput" element={<DateInput/>}/>
 
        {/* none existing routes */}
        <Route
