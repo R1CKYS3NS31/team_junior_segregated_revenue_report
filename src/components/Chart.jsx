@@ -69,19 +69,19 @@ const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
 const data = [
   {
     name: 'laboratory',
-    amount: labTotal
+    revenues: labTotal
   },
   {
     name: "Registration",
-    amount: regTotal
+    revenues: regTotal
   },
   {
     name: "Pharmacy",
-    amount: pharmTotal
+    revenues: pharmTotal
   },
   {
     name: "Radiology",
-    amount: radTotal
+    revenues: radTotal
   }
 ];
 
@@ -108,7 +108,7 @@ export default function Chart() {
       <YAxis />
       <Tooltip />
       <Legend />
-      <Bar dataKey="amount" fill="#8884d8" />
+      <Bar dataKey="revenues" fill="#8884d8" />
       {/* <Bar dataKey="amount" fill="blue" />
       <Bar dataKey="amount" fill="yellow" />
       <Bar dataKey="amount" fill="black" /> */}
