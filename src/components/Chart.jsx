@@ -42,7 +42,6 @@ function calcTotal(detail){
     const amount = detail[i]["amount_paid"]
     detail_total += amount
   }
-  
   return detail_total;
 }
 
