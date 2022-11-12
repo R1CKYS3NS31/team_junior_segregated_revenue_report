@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const departmentSummaries = () => {
+export const DepartmentSummaries = () => {
   return (
     <div>departmentSummaries</div>
   )

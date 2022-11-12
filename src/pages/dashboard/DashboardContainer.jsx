@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Chart from "../../components/Chart";
 import Deposits from "../../components/Deposits";
-import Orders from "../../components/Orders";
+import {Patients} from "../../components/Patients";
 import { Link, Typography } from "@mui/material";
 
 export const DashboardContainer = () => {
@@ -55,10 +55,10 @@ export const DashboardContainer = () => {
             <Deposits />
           </Paper>
         </Grid>
-        {/* Recent Orders */}
+        {/* Recent Patients */}
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-            <Orders />
+            <Patients />
           </Paper>
         </Grid>
       </Grid>

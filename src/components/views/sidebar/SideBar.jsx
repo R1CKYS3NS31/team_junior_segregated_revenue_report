@@ -34,32 +34,32 @@ export default function SideBar() {
                   <b>Dashboard</b>
                 </li>
               </Link>
-              <Link to={"/"} className="link">
+              <Link to={"/workload"} className="link">
                 <li className="sidebarListItem">
                   <ShoppingCart className="sidebarIcon" />
                   Work Load
                 </li>
               </Link>
               <h3 className="sidebarTitle">Departments</h3>
-              <Link to={"/"} className="link">
+              <Link to={"/registration"} className="link">
                 <li className="sidebarListItem">
                   <People className="sidebarIcon" />
                   Registration
                 </li>
               </Link>
-              <Link to={"/"} className="link">
+              <Link to={"/laboratory"} className="link">
                 <li className="sidebarListItem">
                   <BiotechOutlined className="sidebarIcon" />
                   Laboratory
                 </li>
               </Link>
-              <Link to={"/"} className="link">
+              <Link to={"/procedures"} className="link">
                 <li className="sidebarListItem">
                   <ContentCutOutlined className="sidebarIcon" />
                   Procedures
                 </li>
               </Link>
-              <Link to={"/"} className="link">
+              <Link to={"/radiology"} className="link">
                 <li className="sidebarListItem">
                   <RememberMeOutlined className="sidebarIcon" />
                   Radiology
@@ -71,30 +71,24 @@ export default function SideBar() {
           <div className="sidebarMenu">
             <h3 className="sidebarTitle">Summaries</h3>
             <ul className="sidebarList">
-              <Link to={"users"} className="link">
+              <Link to={"/patientsummaries"} className="link">
                 <li className="sidebarListItem">
                   <SavedSearch className="sidebarIcon" />
                   Patient Summaries
                 </li>
               </Link>
-              <Link to={"products"} className="link">
+              <Link to={"/departmentsummaries"} className="link">
                 <li className="sidebarListItem">
                   <AssessmentOutlined className="sidebarIcon" />
                   Department Summaries
                 </li>
               </Link>
-              <Link to={"products"} className="link">
+              <Link to={"/nhifsummaries"} className="link">
                 <li className="sidebarListItem">
                   <BarChartOutlined className="sidebarIcon" />
                   NHIF Summaries
                 </li>
               </Link>
-              {/* <Link to={"products"} className="link">
-                <li className="sidebarListItem">
-                  <Storefront className="sidebarIcon" />
-                  Patient Invoice
-                </li>
-              </Link> */}
             </ul>
           </div>
         </div>
