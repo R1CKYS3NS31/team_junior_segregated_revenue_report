@@ -11,6 +11,7 @@ import {
   Legend
 } from "recharts";
 import Title from './Title';
+import jsonData from "../data/revenue.json";
 
 // import { indexes } from 'd3';
 
@@ -20,18 +21,6 @@ function createData(time, amount) {
   return { time, amount };
 }
 
-<<<<<<< HEAD
-const data = [
-  createData('00:00', 0),
-  createData('03:00', 300),
-  createData('06:00', 600),
-  createData('09:00', 800),
-  createData('12:00', 1500),
-  createData('15:00', 2000),
-  createData('18:00', 2400),
-  createData('21:00', 2400),
-  createData('24:00', undefined),
-=======
 // details.forEach(detail => {
 //   console.log(detail);
 // })
@@ -94,7 +83,6 @@ const data = [
     name: "Radiology",
     revenues: radTotal
   }
->>>>>>> 1c0446963a4f68ba0d31574e6f3528d223850887
 ];
 
 export default function Chart() {
@@ -104,46 +92,6 @@ export default function Chart() {
     <React.Fragment>
       <Title>Today</Title>
       <ResponsiveContainer>
-<<<<<<< HEAD
-        <LineChart
-          data={data}
-          margin={{
-            top: 16,
-            right: 16,
-            bottom: 0,
-            left: 24,
-          }}
-        >
-          <XAxis
-            dataKey="time"
-            stroke={theme.palette.text.secondary}
-            style={theme.typography.body2}
-          />
-          <YAxis
-            stroke={theme.palette.text.secondary}
-            style={theme.typography.body2}
-          >
-            <Label
-              angle={270}
-              position="left"
-              style={{
-                textAnchor: 'middle',
-                fill: theme.palette.text.primary,
-                ...theme.typography.body1,
-              }}
-            >
-              Sales ($)
-            </Label>
-          </YAxis>
-          <Line
-            isAnimationActive={false}
-            type="monotone"
-            dataKey="amount"
-            stroke={theme.palette.primary.main}
-            dot={false}
-          />
-        </LineChart>
-=======
       <BarChart
       width={800}
       height={400}
@@ -165,7 +113,6 @@ export default function Chart() {
       <Bar dataKey="amount" fill="yellow" />
       <Bar dataKey="amount" fill="black" /> */}
     </BarChart>      
->>>>>>> 1c0446963a4f68ba0d31574e6f3528d223850887
       </ResponsiveContainer>
     </React.Fragment>
   );
