@@ -9,11 +9,7 @@ import {
 // components
 import SideBar from "./components/views/sidebar/SideBar";
 import Topbar from "./components/views/topbar/Topbar";
-import { UserList } from "./pages/userList/UserList";
-import { ProductList } from "./pages/productList/ProductList";
-import { Product } from "./pages/product/Product";
-import { NewProduct } from "./pages/newProduct/NewProduct";
-import { DashboardContainer } from "./components/dashboard/DashboardContainer";
+import { DashboardContainer } from "./pages/dashboard/DashboardContainer";
 
 function App() {
   return (
@@ -23,14 +19,7 @@ function App() {
         <SideBar />
         <Routes>
           <Route path={"/"} exact element={<DashboardContainer/>} />
-          {/* user */}
-          <Route path={"/users"} element={<UserList />} />
-          <Route path={"/newUser"} />
-          <Route path={"/user/:userId"} />
-          {/* product */}
-          <Route path={"/products"} element={<ProductList />} />
-          <Route path={"/newProduct"} element={<NewProduct />} />
-          <Route path={"/product/:productId"} element={<Product />}></Route>
+        
           {/* none existing routes */}
           <Route
             path="*"

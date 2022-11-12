@@ -2,9 +2,9 @@ import React from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Chart from "../Chart";
-import Deposits from "../Deposits";
-import Orders from "../Orders";
+import Chart from "../../components/Chart";
+import Deposits from "../../components/Deposits";
+import Orders from "../../components/Orders";
 import { Link, Typography } from "@mui/material";
 
 export const DashboardContainer = () => {

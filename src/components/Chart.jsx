@@ -17,9 +17,9 @@ import jsonData from "../data/revenue.json";
 
 
 // Generate Sales Data
-// function createData(time, amount) {
-//   return { time, amount };
-// }
+function createData(time, amount) {
+  return { time, amount };
+}
 
 // details.forEach(detail => {
 //   console.log(detail);
