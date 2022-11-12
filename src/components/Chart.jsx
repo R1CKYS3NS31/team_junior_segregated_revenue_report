@@ -12,7 +12,9 @@ import {
 } from "recharts";
 import Title from './Title';
 import jsonData from '../data/revenue.json'
+
 // import { indexes } from 'd3';
+
 
 // Generate Sales Data
 function createData(time, amount) {
@@ -35,46 +37,36 @@ const laboratory = jsonData["revenue"][0]["department"][0]["laboratory"]
 const registration = jsonData["revenue"][0]["department"][0]["registration"]
 const procedures = jsonData["revenue"][0]["department"][0]["procedures"]
 const radiology = jsonData["revenue"][0]["department"][0]["radiology"]
+const pharmacy = jsonData["revenue"][0]["department"][0]["pharmacy"]
 
 const laboratory_details = laboratory.map((data)=>{return data})
 const registration_details = registration.map((data)=>{return data})
 const procedures_details = procedures.map((data)=>{return data})
 const radiology_details = radiology.map((data)=>{return data})
+const pharmacy_details = pharmacy.map((data)=>{return data})
 
-let lab_total = 0;
-let reg_total = 0;
-let proc_total = 0;
-let rad_total = 0;
 
-for (var i=0; i < laboratory_details.length; i++) {
-  const lab_amount = laboratory_details[i]["amount_paid"]
-  lab_total += lab_amount
+let detail_total = 0;
 
+function calcTotal(detail){
+  detail_total = 0;
+  for (var i=0; i < detail.length; i++) {
+    const amount = detail[i]["amount_paid"]
+    detail_total += amount
+  }
+  
+  return detail_total;
 }
 
-for (var n=0; n < registration_details.length; n++) {
-  const reg_amount = registration_details[n]["amount_paid"]
-  reg_total += reg_amount
-}
-
-for (var n=0; n < procedures_details.length; n++) {
-  const proc_amount = procedures_details[n]["amount_paid"]
-  proc_total += proc_amount
-}
-
-for (var n=0; n < radiology_details.length; n++) {
-  const rad_amount = radiology_details[n]["amount_paid"]
-  rad_total += rad_amount
-}
+const labTotal = calcTotal(laboratory_details)
+const regTotal = calcTotal(registration_details)
+const procTotal = calcTotal(procedures_details)
+const radTotal = calcTotal(radiology_details)
+const pharmTotal = calcTotal(pharmacy_details)
 
 
-console.log(lab_total)
-console.log(reg_total)
-console.log(proc_total)
-console.log(rad_total)
+const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
 
-
-// {console.log(jsonData["revenue"][0]["department"][0]["laboratory"][0]["amount_paid"])}
 const data = [
   {
     name: "Jan",
@@ -136,6 +128,7 @@ const data = [
     buy: 3490,
     sell: 4300,
   }
+
 ];
 
 export default function Chart() {
