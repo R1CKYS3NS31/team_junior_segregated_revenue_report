@@ -12,12 +12,9 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "d3": "^7.6.1",
-<<<<<<< HEAD
     "json": "^11.0.0",
-=======
     "dayjs": "^1.11.6",
     "json-server": "^0.17.1",
->>>>>>> d455bfcb3f24b13527ad43356a47b07a9a2e7987
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
