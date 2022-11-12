@@ -7,11 +7,17 @@
     "@emotion/styled": "^11.10.5",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.13",
+    "@mui/x-date-pickers": "^5.0.8",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "d3": "^7.6.1",
+<<<<<<< HEAD
     "json": "^11.0.0",
+=======
+    "dayjs": "^1.11.6",
+    "json-server": "^0.17.1",
+>>>>>>> d455bfcb3f24b13527ad43356a47b07a9a2e7987
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
@@ -24,7 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "serve": "json-server --watch ./src/database/db.json --port 8000"
   },
   "eslintConfig": {
     "extends": [
