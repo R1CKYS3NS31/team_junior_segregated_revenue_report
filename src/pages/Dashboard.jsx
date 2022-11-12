@@ -25,6 +25,7 @@ import { DashboardContainer } from "../components/dashboard/DashboardContainer";
 
 const drawerWidth = 240;
 
+
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
 })(({ theme, open }) => ({
@@ -74,13 +75,21 @@ const mdTheme = createTheme();
 function DashboardContent() {
   // date picker
   const newDate = new Date();
-  const [value, setValue] = React.useState(dayjs(newDate.toString()));
-  console.log(value);
+  const [to, setTo] = React.useState(dayjs(newDate.toString()));
+  const [from, setFrom] = React.useState(dayjs(newDate.toString()));
+
 
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
+
+  const handlesubmit= (e) => {
+    e.preventDefault();
+    console.log(from)
+ 
+  }
+  
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -153,6 +162,8 @@ function DashboardContent() {
           }}
         >
           <Toolbar />
+
+          <form onSubmit={handlesubmit}>
           <Box sx={{ mt: 4, mx: 4, display: "flex" }}>
             <div className="from">
               <label htmlFor="from" style={{ paddingRight: "5px" }}>
@@ -163,10 +174,8 @@ function DashboardContent() {
                   openTo="year"
                   views={["year", "month", "day"]}
                   label="Year, month and date"
-                  value={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
+                  value={from}
+                  onChange = {(e) => setFrom(e.target.value)}
                   renderInput={(params) => (
                     <TextField {...params} helperText={null} />
                   )}
@@ -182,17 +191,19 @@ function DashboardContent() {
                   openTo="year"
                   views={["year", "month", "day"]}
                   label="Year, month and date"
-                  value={value}
-                  onChange={(newValue) => {
-                    setValue(newValue);
-                  }}
+                  value={to}
+                  onChange = {(e) => setTo(e.target.value)}
                   renderInput={(params) => (
                     <TextField {...params} helperText={null} />
                   )}
                 />
               </LocalizationProvider>
             </div>
+
+            <input type="submit" value="Filter" />
           </Box>
+          </form>
+          
           {/* container */}
           <DashboardContainer/>
         </Box>
