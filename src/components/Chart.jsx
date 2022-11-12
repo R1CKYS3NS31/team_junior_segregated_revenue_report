@@ -12,6 +12,7 @@ import {
 } from "recharts";
 import Title from './Title';
 import jsonData from '../data/revenue.json'
+import { json } from 'd3';
 
 // import { indexes } from 'd3';
 
@@ -44,6 +45,7 @@ const registration_details = registration.map((data)=>{return data})
 const procedures_details = procedures.map((data)=>{return data})
 const radiology_details = radiology.map((data)=>{return data})
 const pharmacy_details = pharmacy.map((data)=>{return data})
+
 
 
 let detail_total = 0;
@@ -104,7 +106,7 @@ export default function Chart() {
         bottom: 5
       }}
     >
-      <CartesianGrid strokeDasharray="3" />
+      <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
       <YAxis />
       <Tooltip />
