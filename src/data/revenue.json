@@ -44,7 +44,7 @@
                         {
                             "id":2,
                             "patient_name": "Wechuli Maven",
-                            "amount_paid":220,
+                            "amount_paid":2200,
                             "date":"07/2/2022"
                         }
                     ],
@@ -52,13 +52,27 @@
                         {
                             "id":1,
                             "patient_name": "Fred Otieno",
-                            "amount_paid":100,
+                            "amount_paid":2000,
                             "date":"07/2/3/2022"
                         },
                         {
                             "id":2,
                             "patient_name": "Elton Ndambuki",
                             "amount_paid":1200,
+                            "date":"07/2/2022"
+                        }
+                    ],
+                    "pharmacy":[
+                        {
+                            "id":1,
+                            "patient_name": "Fred Otieno",
+                            "amount_paid":2000,
+                            "date":"07/2/3/2022"
+                        },
+                        {
+                            "id":2,
+                            "patient_name": "Elton Ndambuki",
+                            "amount_paid":100,
                             "date":"07/2/2022"
                         }
                     ]
