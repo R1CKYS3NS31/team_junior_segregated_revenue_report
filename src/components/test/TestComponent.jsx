@@ -1,15 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import Registration_Revenue from '../charts/Registration_Revenue'
-
-export const TestComponent = () => {
-  return (
-    <div>
-      <Registration_Revenue/>
-    </div>
-  )
-}
-=======
 import { Button } from "@mui/material";
 import {
   PDFDownloadLink,
@@ -56,4 +44,3 @@ export const TestComponent = () => (
     </div>
   </>
 );
->>>>>>> refs/remotes/origin/main
