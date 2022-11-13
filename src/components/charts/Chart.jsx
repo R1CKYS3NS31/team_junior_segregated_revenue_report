@@ -10,60 +10,38 @@ import {
   CartesianGrid,
   Legend
 } from "recharts";
-import Title from './Title';
-import jsonData from "../data/revenue.json";
-
-// import { indexes } from 'd3';
+import Title from '../Title';
 
 
-// Generate Sales Data
-function createData(time, amount) {
-  return { time, amount };
-}
-
-// details.forEach(detail => {
-//   console.log(detail);
-// })
-
-
-// const filtered_dets = details.filter(det => {
-//   return det.userId == 1;
-// }) 
-// console.log(filtered_dets);
-
-
-
-
-
-export default function Chart({labTotal, regTotal, pharmTotal,radTotal, procTotal}) {
+export default function Chart({reg, setReg, lab, setLab, proc, setProc, rad, setRad, pharm, setPharm}) {
   const theme = useTheme();
   
   const data = [
     {
       name: 'laboratory',
-      revenues: labTotal
+      revenues: lab
     },
     {
       name: "Registration",
-      revenues: regTotal
+      revenues: reg
     },
     {
       name: "Pharmacy",
-      revenues: pharmTotal
+      revenues: pharm
     },
     {
       name: "Radiology",
-      revenues: radTotal
+      revenues: rad
     },
     {
       name: "Procedures",
-      revenues: procTotal
+      revenues: proc
     }
   ];
 
   return (
     <React.Fragment>
-      <Title>Today</Title>
+      <Title>Department Revenue</Title>
       <ResponsiveContainer>
       <BarChart
       width={800}

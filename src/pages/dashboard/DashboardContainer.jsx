@@ -2,12 +2,27 @@ import React from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Chart from "../../components/Chart";
+import Chart from "../../components/charts/Chart";
 import Deposits from "../../components/Deposits";
-import {Patients} from "../../components/Patients";
-import { Link, Typography } from "@mui/material";
+import { Patients } from "../../components/Patients";
+import {
+  Box,
+  Button,
+  Divider,
+  Link,
+  List,
+  ListItem,
+  ListItemText,
+  TextField,
+  Typography,
+} from "@mui/material";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import dayjs from "dayjs";
+import { Laboratory } from "../laboratory/Laboratory";
 
-export const DashboardContainer = ({labTotal, regTotal, pharmTotal,radTotal, procTotal, grandTotal}) => {
+
+export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, setProc, rad, setRad, pharm, setPharm, RadiologyFilterTotal,ProcedureFilterTotal,  RegistrationFilterTotal,PharmacyFilterTotal, LaboratoryFilterTotal}) => {
   function Copyright(props) {
     return (
       <Typography
@@ -26,8 +41,96 @@ export const DashboardContainer = ({labTotal, regTotal, pharmTotal,radTotal, pro
     );
   }
 
+  // date picker
+  const newDate = new Date();
+  const [to, setTo] = React.useState(dayjs(newDate.toString()));
+  const [from, setFrom] = React.useState(dayjs(newDate.toString()));
+
+  const handlesubmit = (e) => {
+    e.preventDefault();
+   
+    const dateFrom = `${from.$d.getDate()}-${from.$d.getMonth()}-${from.$d.getFullYear()}`
+    const dateTo = `${to.$d.getDate()}-${to.$d.getMonth()}-${to.$d.getFullYear()}`
+
+    takeDate(dateTo,dateFrom)
+
+    setReg(RegistrationFilterTotal)
+    setPharm(PharmacyFilterTotal)
+    setRad(RadiologyFilterTotal)
+    setProc(ProcedureFilterTotal)
+    setLab(LaboratoryFilterTotal)
+    
+
+  };
+
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <h2>Dashboard</h2>
+      {/* datepicker */}
+
+      <form onSubmit={handlesubmit}>
+        <Grid
+          container
+          spacing={3}
+          sx={{
+            mt: 4,
+            mb: 4,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div className="from" style={{ flex: 2 }}>
+            <label htmlFor="from" style={{ paddingRight: "5px" }}>
+              From:
+            </label>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              openTo="year"
+              views={["year", "month", "day"]}
+              label="Year, month and date"
+              value={from}
+              onChange={(newValue) => setFrom(newValue)}
+              renderInput={(params) => (
+                <TextField {...params} helperText={null} />
+              )}
+            />
+          </LocalizationProvider>
+          </div>
+          <div className="to" style={{ paddingLeft: "10px", flex: 2 }}>
+            <label htmlFor="to" style={{ paddingRight: "5px" }}>
+              To:
+            </label>
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <DatePicker
+              openTo="year"
+              views={["year", "month", "day"]}
+              label="Year, month and date"
+              value={to}
+              onChange={(newValue) => setTo(newValue)}
+              renderInput={(params) => (
+                <TextField {...params} helperText={null} />
+              )}
+            />
+          </LocalizationProvider>
+          </div>
+          <Button
+            type="submit"
+            sx={{
+              width: "100%",
+              ml: 4,
+              mr: 4,
+              flex: 1,
+              color: "white",
+              backgroundColor: "lightblue",
+            }}
+          >
+            Filter
+          </Button>
+        </Grid>
+      </form>
+
+      {/* report */}
       <Grid container spacing={3}>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={9}>
@@ -39,11 +142,46 @@ export const DashboardContainer = ({labTotal, regTotal, pharmTotal,radTotal, pro
               height: 240,
             }}
           >
-            <Chart labTotal={labTotal} regTotal={regTotal} pharmTotal={pharmTotal} radTotal={radTotal} procTotal={procTotal}/>
+            
+            <Chart reg={reg} lab={lab} rad={rad} pharm={pharm} proc={proc}/>
           </Paper>
         </Grid>
+
         {/* Recent Revenue */}
         <Grid item xs={12} md={4} lg={3}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+              // height: '100%',
+            }}
+          >
+            {/* <Departments /> */}
+            <List
+              sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+              component="nav"
+              aria-label="mailbox folders"
+            >
+              <ListItem button>
+                <ListItemText primary="Registration" secondary="13000" />
+              </ListItem>
+              <Divider />
+              <ListItem button divider>
+                <ListItemText primary="Laboratory" secondary="13000" />
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary="Procedure" secondary="13000" />
+              </ListItem>
+              <Divider light />
+              <ListItem button>
+                <ListItemText primary="Radiology" secondary="13000" />
+              </ListItem>
+            </List>
+          </Paper>
+        </Grid>
+        {/* Chart */}
+        <Grid item xs={12} md={8} lg={9}>
           <Paper
             sx={{
               p: 2,
@@ -52,7 +190,7 @@ export const DashboardContainer = ({labTotal, regTotal, pharmTotal,radTotal, pro
               height: 240,
             }}
           >
-            <Deposits grandTotal={grandTotal}/>
+            <Chart />
           </Paper>
         </Grid>
         {/* Recent Patients */}

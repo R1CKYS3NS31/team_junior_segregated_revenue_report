@@ -1,5 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import jsonData from './data/revenue.json'
+import { useState } from "react";
 
 // components
 import SideBar from "./components/views/sidebar/SideBar";
@@ -13,17 +15,9 @@ import { Radiology } from "./pages/radiology/Radiology";
 import { PatientSummaries } from "./pages/patientSummaries/PatientSummaries";
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
-import jsonData from "./data/revenue.json"
-import { useState } from "react";
-
+import { TestComponent } from "./components/test/TestComponent";
 
 function App() {
-
-  const [reg, setReg] = useState(regTotal)
-  const [lab, setLab] = useState(labTotal)
-  const [proc, setProc] = useState(procTotal)
-  const [pharm, setPharm] = useState(pharmTotal)
-  const [rad, setRad] = useState(radTotal)
 
 
   const laboratory = jsonData["revenue"][0]["department"][0]["laboratory"]
@@ -40,9 +34,14 @@ function App() {
 
   let detail_total = 0;
 
+  const [to, setTo] =useState('07-02-2022')
+  const [from, setFrom] =useState('07-02-2022')
 
-  const to ='07-02-2022'
-  const from ='07-02-2022'
+
+  const takeDate= (to,from)=>{
+    setTo(to);
+    setFrom(from);
+  }
 
 
   let i=0;
@@ -54,6 +53,7 @@ function App() {
   const fromSplitDate = from.split('-')[0]
   const fromSplitMonth = from.split('-')[1]
   const fromSplitYear = from.split('-')[2]
+
 
 
   function FilteredDates(details){
@@ -81,8 +81,8 @@ function App() {
           if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
             // console.log("Different Day")
     
-            const newdate = FilteredDates()
-            console.log(newdate)
+            const newdate = FilteredDates(data)
+            // console.log(newdate)
             if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
               return  det.date == newdate
             }
@@ -90,8 +90,8 @@ function App() {
           }
           else{
             // console.log("Same Day")
-            const newdate = FilteredDates()
-            console.log(newdate)
+            const newdate = FilteredDates(data)
+            // console.log(newdate)
             if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
               return  det.date == newdate
             }
@@ -102,8 +102,8 @@ function App() {
           // console.log("Same Month")
           if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
             console.log("Different Day")
-            const newdate = FilteredDates()
-            console.log(newdate)
+            const newdate = FilteredDates(data)
+            // console.log(newdate)
             if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
               return  det.date == newdate
             }
@@ -113,8 +113,8 @@ function App() {
           }
           else{
             // console.log("Same Day")
-            const newdate = FilteredDates()
-            console.log(newdate)
+            const newdate = FilteredDates(data)
+            // console.log(newdate)
             if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
               return  det.date == newdate
             }
@@ -129,8 +129,8 @@ function App() {
             // console.log("Different Month")
     
           if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
-            const newdate = FilteredDates()
-            //  console.log(newdate)
+            const newdate = FilteredDates(data)
+             console.log(newdate)
             if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
               return  det.date == newdate
             }
@@ -138,8 +138,8 @@ function App() {
           }
           else{
             // console.log("Same Day")
-            const newdate = FilteredDates()
-            console.log(newdate)
+            const newdate = FilteredDates(data)
+            // console.log(newdate)
             if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
               return det.date == det.date == newdate
             }
@@ -155,8 +155,8 @@ function App() {
             // console.log("Different Day")
     
             const newdate = FilteredDates()
-            console.log(newdate)
-            console.log(newdate)
+            // console.log(newdate)
+            // console.log(newdate)
             if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
               return det.date == newdate
             }
@@ -165,7 +165,7 @@ function App() {
           else{
             // console.log("Same day")
             const newdate = `${fromSplitDate}-${fromSplitMonth}-${fromSplitYear}`
-            console.log(newdate)
+            // console.log(newdate)
             return det.date == newdate
           
           }
@@ -211,11 +211,16 @@ function App() {
 
   const RegistrationFilterTotal = calcTotal(RegistrationFilter)
   const LaboratoryFilterTotal = calcTotal(LaboratoryFilter)
-  const RadiologyFilterFilterTotal = calcTotal(RadiologyFilter)
+  const RadiologyFilterTotal = calcTotal(RadiologyFilter)
   const PharmacyFilterTotal = calcTotal(PharmacyFilter)
   const ProcedureFilterTotal = calcTotal(ProcedureFilter)
 
 
+  const [reg, setReg] = useState(100)
+  const [lab, setLab] = useState(labTotal)
+  const [proc, setProc] = useState(procTotal)
+  const [pharm, setPharm] = useState(pharmTotal)
+  const [rad, setRad] = useState(200)
 
 
   const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
@@ -229,13 +234,23 @@ function App() {
         <Routes>
           <Route path={"/"} exact element={
                 <DashboardContainer 
-                  regTotal={regTotal}
-                  labTotal={labTotal}
-                  pharmTotal={pharmTotal}
-                  radTotal={radTotal}
-                  procTotal={procTotal}
                   grandTotal={grandTotal}
-               
+                  takeDate={takeDate}
+                  reg={reg}
+                  setReg={setReg}
+                  setLab={setLab}
+                  lab={lab}
+                  pharm={pharm}
+                  setPharm={setPharm}
+                  rad={rad}
+                  setRad={setRad}
+                  setProc={setProc}
+                  proc={proc}
+                  RegistrationFilterTotal={RegistrationFilterTotal} 
+                  LaboratoryFilterTotal={LaboratoryFilterTotal}  
+                  PharmacyFilterTotal={PharmacyFilterTotal}  
+                  ProcedureFilterTotal={ProcedureFilterTotal}  
+                  RadiologyFilterTotal={RadiologyFilterTotal}          
                   />
                 } />
           <Route path={"/workload"} element={<Workload />} />
@@ -243,10 +258,13 @@ function App() {
           <Route path="/laboratory" element={<Laboratory />} />
           <Route path="/procedures" element={<Procedures />} />
           <Route path="/radiology" element={<Radiology />} />
-          <Route path="/patientsummaries" element={<PatientSummaries/>}/>
-          <Route path="/departmentsummaries" element={<DepartmentSummaries/>}/>
-          <Route path="/nhifsummaries" element={<NHIFSummaries/>}/>
-
+          <Route path="/patientsummaries" element={<PatientSummaries />} />
+          <Route
+            path="/departmentsummaries"
+            element={<DepartmentSummaries />}
+          />
+          <Route path="/nhifsummaries" element={<NHIFSummaries />} />
+          <Route path="/test" element={<TestComponent />} />
           {/* none existing routes */}
           <Route
             path="*"
