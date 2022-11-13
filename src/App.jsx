@@ -13,7 +13,7 @@ import { Radiology } from "./pages/radiology/Radiology";
 import { PatientSummaries } from "./pages/patientSummaries/PatientSummaries";
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
-import { TestComponent } from "./components/test/TestComponent";
+import TestComponent from "./components/test/TestComponent";
 
 function App() {
   return (

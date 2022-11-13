@@ -1,59 +1,10 @@
-<<<<<<< HEAD
-import React from 'react'
-import Registration_Revenue from '../charts/Registration_Revenue'
+import React from "react";
+import RegRevenue from "../charts/RegRevenue";
 
-export const TestComponent = () => {
+export default function TestComponent() {
   return (
     <div>
-      <Registration_Revenue/>
+      <RegRevenue />
     </div>
-  )
+  );
 }
-=======
-import { Button } from "@mui/material";
-import {
-  PDFDownloadLink,
-  Document,
-  Page,
-  View,
-  Text,
-  PDFViewer,
-  Image,
-} from "@react-pdf/renderer";
-import Chart from "../charts/Chart";
-
-const MyDoc = () => (
-  <>
-    <Document>
-      <Page size="A4">
-        <View>
-          <Text>
-            Hello
-          </Text>
-        </View>
-        <View>
-          <Text>Section #2</Text>
-        </View>
-        <Image  src={'/pl.png'}/>
-      </Page>
-    </Document>
-  </>
-);
-
-export const TestComponent = () => (
-  <>
-    {/* <h1>Hello</h1> */}
-    
-      <MyDoc />
-    
-
-    <div className="">
-      <PDFDownloadLink document={<MyDoc />} fileName="revenue_report.pdf">
-        {({ blob, url, loading, error }) =>
-          loading ? "Loading document..." : "Download now!"
-        }
-      </PDFDownloadLink>
-    </div>
-  </>
-);
->>>>>>> refs/remotes/origin/main
