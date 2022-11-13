@@ -16,6 +16,7 @@ import { PatientSummaries } from "./pages/patientSummaries/PatientSummaries";
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
 import { TestComponent } from "./components/test/TestComponent";
+import { Pharmacy } from "./pages/pharmacy/Pharmacy";
 
 function App() {
 
@@ -259,6 +260,7 @@ function App() {
           <Route path="/laboratory" element={<Laboratory />} />
           <Route path="/procedures" element={<Procedures />} />
           <Route path="/radiology" element={<Radiology />} />
+          <Route path="/pharmacy" element={<Pharmacy />} />
           <Route path="/patientsummaries" element={<PatientSummaries />} />
           <Route
             path="/departmentsummaries"
@@ -266,7 +268,7 @@ function App() {
           />
           <Route path="/nhifsummaries" element={<NHIFSummaries />} />
           <Route path="/test" element={<TestComponent />} />
-          
+
           {/* none existing routes */}
           <Route
             path="*"
@@ -309,3 +311,4 @@ function App() {
 }
 
 export default App;
+
