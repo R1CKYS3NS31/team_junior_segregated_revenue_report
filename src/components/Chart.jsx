@@ -33,60 +33,33 @@ function createData(time, amount) {
 
 
 
-const laboratory = jsonData["revenue"][0]["department"][0]["laboratory"]
-const registration = jsonData["revenue"][0]["department"][0]["registration"]
-const procedures = jsonData["revenue"][0]["department"][0]["procedures"]
-const radiology = jsonData["revenue"][0]["department"][0]["radiology"]
-const pharmacy = jsonData["revenue"][0]["department"][0]["pharmacy"]
-
-const laboratory_details = laboratory.map((data)=>{return data})
-const registration_details = registration.map((data)=>{return data})
-const procedures_details = procedures.map((data)=>{return data})
-const radiology_details = radiology.map((data)=>{return data})
-const pharmacy_details = pharmacy.map((data)=>{return data})
 
 
-let detail_total = 0;
-
-function calcTotal(detail){
-  detail_total = 0;
-  for (var i=0; i < detail.length; i++) {
-    const amount = detail[i]["amount_paid"]
-    detail_total += amount
-  }
-  return detail_total;
-}
-
-const labTotal = calcTotal(laboratory_details)
-const regTotal = calcTotal(registration_details)
-const procTotal = calcTotal(procedures_details)
-const radTotal = calcTotal(radiology_details)
-const pharmTotal = calcTotal(pharmacy_details)
-
-
-const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
-
-const data = [
-  {
-    name: 'laboratory',
-    revenues: labTotal
-  },
-  {
-    name: "Registration",
-    revenues: regTotal
-  },
-  {
-    name: "Pharmacy",
-    revenues: pharmTotal
-  },
-  {
-    name: "Radiology",
-    revenues: radTotal
-  }
-];
-
-export default function Chart() {
+export default function Chart({labTotal, regTotal, pharmTotal,radTotal, procTotal}) {
   const theme = useTheme();
+  
+  const data = [
+    {
+      name: 'laboratory',
+      revenues: labTotal
+    },
+    {
+      name: "Registration",
+      revenues: regTotal
+    },
+    {
+      name: "Pharmacy",
+      revenues: pharmTotal
+    },
+    {
+      name: "Radiology",
+      revenues: radTotal
+    },
+    {
+      name: "Procedures",
+      revenues: procTotal
+    }
+  ];
 
   return (
     <React.Fragment>

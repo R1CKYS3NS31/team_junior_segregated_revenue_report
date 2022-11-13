@@ -13,15 +13,236 @@ import { Radiology } from "./pages/radiology/Radiology";
 import { PatientSummaries } from "./pages/patientSummaries/PatientSummaries";
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
+import jsonData from "./data/revenue.json"
+
 
 function App() {
+
+
+const laboratory = jsonData["revenue"][0]["department"][0]["laboratory"]
+const registration = jsonData["revenue"][0]["department"][0]["registration"]
+const procedures = jsonData["revenue"][0]["department"][0]["procedures"]
+const radiology = jsonData["revenue"][0]["department"][0]["radiology"]
+const pharmacy = jsonData["revenue"][0]["department"][0]["pharmacy"]
+
+const laboratory_details = laboratory.map((data)=>{return data})
+const registration_details = registration.map((data)=>{return data})
+const procedures_details = procedures.map((data)=>{return data})
+const radiology_details = radiology.map((data)=>{return data})
+const pharmacy_details = pharmacy.map((data)=>{return data})
+
+
+
+let detail_total = 0;
+
+// console.log(registration_details)
+
+const to ='07-03-2022'
+const from ='05-05-2022'
+
+
+let i=0;
+
+const toSplitDate = to.split('-')[0]
+const toSplitMonth = to.split('-')[1]
+const toSplitYear = to.split('-')[2]
+
+const fromSplitDate = from.split('-')[0]
+const fromSplitMonth = from.split('-')[1]
+const fromSplitYear = from.split('-')[2]
+
+
+function FilteredDates(details){
+  for(i=0;i<details.length;i++){
+    let x= details[i].date.split('-')[0]
+    let y= details[i].date.split('-')[1]
+    let z= details[i].date.split('-')[2]
+
+    const d = x>=fromSplitDate && x<=toSplitDate? x: 0;
+    const m = y>=fromSplitMonth && y<=toSplitMonth? y: 0; 
+    const Y = z>=fromSplitYear && z<=toSplitYear? z: 0;
+
+    return `${d}-${m}-${Y}`
+
+   
+}
+
+}
+
+// function dateAnalyzer(){
+//       const newdate = FilteredDates(registration)
+//         if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
+//           return  newdate
+//         }
+
+//         else{console.log("Nope")}
+// }
+
+// console.log(FilteredDates(laboratory))
+
+
+const filtered_data = laboratory.filter(det => {
+  if(fromSplitYear<toSplitYear){
+    console.log("Different Year")
+    if(fromSplitMonth<toSplitMonth || fromSplitMonth>toSplitMonth){
+      console.log("Different Month")
+      if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
+        console.log("Different Day")
+
+        const newdate = FilteredDates(registration_details)
+        console.log(newdate)
+        if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
+          return  det.date == newdate
+        }
+
+        else{console.log("Nope")}
+   
+    
+      }
+
+      else{
+        console.log("Same Day")
+        const newdate = FilteredDates(registration_details)
+        console.log(newdate)
+        if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
+          return  det.date == newdate
+        }
+
+        else{console.log("Nope")}   }
+      
+    }
+    else{
+      console.log("Same Month")
+      if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
+       console.log("Different Day")
+       const newdate = FilteredDates(registration_details)
+       console.log(newdate)
+       if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
+         return  det.date == newdate
+       }
+
+       else{console.log("Nope")}
+        
+      }
+      else{
+        console.log("Same Day")
+        const newdate = FilteredDates(registration_details)
+        console.log(newdate)
+        if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
+          return  det.date == newdate
+        }
+
+        else{console.log("Nope")}
+      }
+    }
+  }
+
+
+  else if(fromSplitYear==toSplitYear){
+      console.log("Same Year")
+    if(fromSplitMonth<toSplitMonth || fromSplitMonth>toSplitMonth){
+        console.log("Different Month")
+
+      if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
+         const newdate = FilteredDates(registration_details)
+         console.log(newdate)
+        if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
+          return  det.date == newdate
+        }
+
+        else{console.log("Nope")}
+        
+      }
+      else{
+        console.log("Same Day")
+        const newdate = FilteredDates(registration_details)
+        console.log(newdate)
+        if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
+          return det.date == det.date == newdate
+        }
+
+        else{console.log("Nope")}
+        
+
+      }
+      
+    }
+    else{
+      console.log("Same Month")
+
+      if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
+        console.log("Different Day")
+
+        const newdate = FilteredDates(registration_details)
+        console.log(newdate)
+        console.log(newdate)
+        if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
+          return det.date == newdate
+        }
+
+        else{console.log("Nope")}
+        
+      }
+      else{
+        console.log("Same day")
+        const newdate = `${fromSplitDate}-${fromSplitMonth}-${fromSplitYear}`
+        console.log(newdate)
+        return det.date == newdate
+       
+      }
+    }
+
+  }
+
+
+  else{
+    console.log("Invalid Filter")
+  }
+
+}) 
+console.log(filtered_data);
+
+
+const registrationFilter = calcTotal(filtered_data)
+console.log(registrationFilter)
+
+
+function calcTotal(detail){
+  detail_total = 0;
+  for (var i=0; i < detail.length; i++) {
+    const amount = detail[i]["amount_paid"]
+    detail_total += amount
+  }
+  return detail_total;
+}
+
+const labTotal = calcTotal(laboratory_details)
+const regTotal = calcTotal(registration_details)
+const procTotal = calcTotal(procedures_details)
+const radTotal = calcTotal(radiology_details)
+const pharmTotal = calcTotal(pharmacy_details)
+
+
+const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
+
+
   return (
     <Router>
       <Topbar />
       <div className="container">
         <SideBar />
         <Routes>
-          <Route path={"/"} exact element={<DashboardContainer />} />
+          <Route path={"/"} exact element={
+                <DashboardContainer 
+                  regTotal={regTotal}
+                  labTotal={labTotal}
+                  pharmTotal={pharmTotal}
+                  radTotal={radTotal}
+                  procTotal={procTotal}
+                  grandTotal={grandTotal}
+               
+                  />
+                } />
           <Route path={"/workload"} element={<Workload />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/laboratory" element={<Laboratory />} />

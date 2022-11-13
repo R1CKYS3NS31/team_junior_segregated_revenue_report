@@ -86,7 +86,9 @@ function DashboardContent() {
 
   const handlesubmit= (e) => {
     e.preventDefault();
-    console.log(from)
+    const dateTo =`${from.$d.getDate()}/${from.$d.getMonth()}/${from.$d.getFullYear()}`
+    const dateFrom = `${to.$d.getDate()}/${to.$d.getMonth()}/${to.$d.getFullYear()}`
+    console.log(dateFrom)
  
   }
   
@@ -169,7 +171,13 @@ function DashboardContent() {
               <label htmlFor="from" style={{ paddingRight: "5px" }}>
                 From:
               </label>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <input 
+                    type="datetime-local" 
+                    value={from}
+                    onChange = {(e) => setFrom(e.target.value)}
+
+                />
+              {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   openTo="year"
                   views={["year", "month", "day"]}
@@ -180,13 +188,13 @@ function DashboardContent() {
                     <TextField {...params} helperText={null} />
                   )}
                 />
-              </LocalizationProvider>
+              </LocalizationProvider> */}
             </div>
             <div className="to" style={{ paddingLeft: "10px" }}>
               <label htmlFor="to" style={{ paddingRight: "5px" }}>
                 To:{" "}
               </label>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
+              {/* <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
                   openTo="year"
                   views={["year", "month", "day"]}
@@ -197,7 +205,14 @@ function DashboardContent() {
                     <TextField {...params} helperText={null} />
                   )}
                 />
-              </LocalizationProvider>
+              </LocalizationProvider> */}
+
+                <input 
+                    type="datetime-local" 
+                    value={to}
+                    onChange = {(e) => setFrom(e.target.value)}
+
+                />
             </div>
 
             <input type="submit" value="Filter" />
