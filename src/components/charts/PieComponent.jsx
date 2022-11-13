@@ -44,8 +44,6 @@ class PieRechartComponent extends React.Component {
 
     render() {
         return (
-           <ResponsiveContainer>
-            
              <PieChart width={730} height={300}>
                 <Pie data={this.pieData} color="#000000" dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={120} fill="#8884d8" >
                     {
@@ -55,7 +53,7 @@ class PieRechartComponent extends React.Component {
                 <Tooltip content={<this.CustomTooltip />} />
                 <Legend />
             </PieChart>
-           </ResponsiveContainer>
+           
         )
     };
 }
