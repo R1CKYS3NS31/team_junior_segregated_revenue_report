@@ -77,7 +77,7 @@ export const DashboardContainer = () => {
               <DatePicker
                 openTo="year"
                 views={["year", "month", "day"]}
-                label="Year, month and date"
+                label="Date, month and year"
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
                 renderInput={(params) => (
@@ -94,7 +94,7 @@ export const DashboardContainer = () => {
               <DatePicker
                 openTo="year"
                 views={["year", "month", "day"]}
-                label="Year, month and date"
+                label="Date, month and year"
                 value={to}
                 onChange={(e) => setTo(e.target.value)}
                 renderInput={(params) => (
