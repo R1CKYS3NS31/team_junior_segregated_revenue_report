@@ -13,10 +13,11 @@ class MonthComponent extends React.Component {
   data = [
     {
       name: "Jan 2019",
-      Laboratory: 3432,
-      Registration: 2342,
-      Pharmacy: 4567,
-      Radiology: 6789,
+      Laboratory: lab,
+      Registration: reg,
+      Pharmacy: pharm,
+      Radiology: rad,
+      Procedures: proc,
     },
     {
       name: "Feb 2019",
@@ -24,6 +25,7 @@ class MonthComponent extends React.Component {
       Registration: 2342,
       Pharmacy: 4567,
       Radiology: 6789,
+      Procedures: 3455,
     },
     {
       name: "Mar 2019",
@@ -31,6 +33,7 @@ class MonthComponent extends React.Component {
       Registration: 2342,
       Pharmacy: 4567,
       Radiology: 6789,
+      Procedures: 3455,
     },
     {
       name: "Apr 2019",
@@ -38,6 +41,7 @@ class MonthComponent extends React.Component {
       Registration: 2342,
       Pharmacy: 4567,
       Radiology: 6789,
+      Procedures: 3455,
     },
     {
       name: "May 2019",
