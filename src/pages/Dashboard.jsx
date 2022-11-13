@@ -21,10 +21,7 @@ import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { TextField } from "@mui/material";
 import { DashboardContainer } from "../components/dashboard/DashboardContainer";
 
-
-
 const drawerWidth = 240;
-
 
 const AppBar = styled(MuiAppBar, {
   shouldForwardProp: (prop) => prop !== "open",
@@ -78,18 +75,15 @@ function DashboardContent() {
   const [to, setTo] = React.useState(dayjs(newDate.toString()));
   const [from, setFrom] = React.useState(dayjs(newDate.toString()));
 
-
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
   };
 
-  const handlesubmit= (e) => {
+  const handlesubmit = (e) => {
     e.preventDefault();
-    console.log(from)
- 
-  }
-  
+    console.log(from);
+  };
 
   return (
     <ThemeProvider theme={mdTheme}>
@@ -164,48 +158,48 @@ function DashboardContent() {
           <Toolbar />
 
           <form onSubmit={handlesubmit}>
-          <Box sx={{ mt: 4, mx: 4, display: "flex" }}>
-            <div className="from">
-              <label htmlFor="from" style={{ paddingRight: "5px" }}>
-                From:
-              </label>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                  openTo="year"
-                  views={["year", "month", "day"]}
-                  label="Year, month and date"
-                  value={from}
-                  onChange = {(e) => setFrom(e.target.value)}
-                  renderInput={(params) => (
-                    <TextField {...params} helperText={null} />
-                  )}
-                />
-              </LocalizationProvider>
-            </div>
-            <div className="to" style={{ paddingLeft: "10px" }}>
-              <label htmlFor="to" style={{ paddingRight: "5px" }}>
-                To:{" "}
-              </label>
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                  openTo="year"
-                  views={["year", "month", "day"]}
-                  label="Year, month and date"
-                  value={to}
-                  onChange = {(e) => setTo(e.target.value)}
-                  renderInput={(params) => (
-                    <TextField {...params} helperText={null} />
-                  )}
-                />
-              </LocalizationProvider>
-            </div>
+            <Box sx={{ mt: 4, mx: 4, display: "flex" }}>
+              <div className="from">
+                <label htmlFor="from" style={{ paddingRight: "5px" }}>
+                  From:
+                </label>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+                    openTo="year"
+                    views={["year", "month", "day"]}
+                    label="Year, month and date"
+                    value={from}
+                    onChange={(e) => setFrom(e.target.value)}
+                    renderInput={(params) => (
+                      <TextField {...params} helperText={null} />
+                    )}
+                  />
+                </LocalizationProvider>
+              </div>
+              <div className="to" style={{ paddingLeft: "10px" }}>
+                <label htmlFor="to" style={{ paddingRight: "5px" }}>
+                  To:{" "}
+                </label>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+                    openTo="year"
+                    views={["year", "month", "day"]}
+                    label="Year, month and date"
+                    value={to}
+                    onChange={(e) => setTo(e.target.value)}
+                    renderInput={(params) => (
+                      <TextField {...params} helperText={null} />
+                    )}
+                  />
+                </LocalizationProvider>
+              </div>
 
-            <input type="submit" value="Filter" />
-          </Box>
+              <input type="submit" value="Filter" />
+            </Box>
           </form>
-          
+
           {/* container */}
-          <DashboardContainer/>
+          <DashboardContainer />
         </Box>
       </Box>
     </ThemeProvider>
