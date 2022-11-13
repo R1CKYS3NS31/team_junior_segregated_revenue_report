@@ -8,15 +8,18 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Legend
+  Legend,
+  
 } from "recharts";
 import Title from './Title';
-<<<<<<< HEAD
+
+
 import jsonData from '../data/revenue.json'
+import PieComponent from './charts/PieComponent'
 import { json } from 'd3';
-=======
-import jsonData from "../data/revenue.json";
->>>>>>> e9afea3b1bd1a4815a2b2bca1fd543c8cc3595bc
+
+
+
 
 // import { indexes } from 'd3';
 
@@ -91,13 +94,17 @@ const data = [
   }
 ];
 
-export default function Chart() {
-  const theme = useTheme();
 
+
+
+export default function Chart() {
+const theme = useTheme();
   return (
     <React.Fragment>
+      
       <Title>Today</Title>
       <ResponsiveContainer>
+      
       <BarChart
       width={800}
       height={400}
@@ -118,8 +125,11 @@ export default function Chart() {
       {/* <Bar dataKey="amount" fill="blue" />
       <Bar dataKey="amount" fill="yellow" />
       <Bar dataKey="amount" fill="black" /> */}
-    </BarChart>      
+    </BarChart>
+    
       </ResponsiveContainer>
+      
     </React.Fragment>
   );
 }
+

@@ -9,6 +9,7 @@ import { Box, Link, TextField, Typography } from "@mui/material";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
+import PieRechartComponent from "../../components/charts/PieComponent";
 
 export const DashboardContainer = () => {
 
@@ -85,6 +86,19 @@ export const DashboardContainer = () => {
         </Box>
       </form>
       <Grid container spacing={3}>
+         {/* Chart */}
+         <Grid item xs={12} md={8} lg={9}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+              height: 240,
+            }}
+          >
+            <PieRechartComponent/>
+          </Paper>
+        </Grid>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={9}>
           <Paper
@@ -98,6 +112,7 @@ export const DashboardContainer = () => {
             <Chart />
           </Paper>
         </Grid>
+         
         {/* Recent Revenue */}
         <Grid item xs={12} md={4} lg={3}>
           <Paper
