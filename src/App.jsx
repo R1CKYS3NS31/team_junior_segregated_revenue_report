@@ -224,10 +224,8 @@ function App() {
 
 
 
-  console.log(labTotal)
-
   const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
-
+  console.log(grandTotal)
 
   return (
     <Router>
