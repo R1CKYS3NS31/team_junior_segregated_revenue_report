@@ -107,7 +107,8 @@ export const DashboardContainer = () => {
               ml: 4,
               mr: 4,
               flex: 1,
-              backgroundColor: "lightgray",
+              color:'white',
+              backgroundColor: "lightblue",
             }}
           >
             Filter
