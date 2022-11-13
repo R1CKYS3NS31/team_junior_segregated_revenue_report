@@ -2,7 +2,7 @@ import React from "react";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
-import Chart from "../../components/Chart";
+import Chart from "../../components/charts/Chart";
 import Deposits from "../../components/Deposits";
 import { Patients } from "../../components/Patients";
 import {
@@ -117,6 +117,19 @@ export const DashboardContainer = () => {
       </form>
 
       <Grid container spacing={3}>
+        {/* Chart */}
+        <Grid item xs={12} md={8} lg={9}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+              height: 240,
+            }}
+          >
+            <Chart />
+          </Paper>
+        </Grid>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={9}>
           <Paper
