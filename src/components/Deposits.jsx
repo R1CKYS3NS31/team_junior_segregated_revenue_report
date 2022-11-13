@@ -8,12 +8,12 @@ function preventDefault(event) {
   event.preventDefault();
 }
 
-export default function Deposits() {
+export default function Deposits({grandTotal}) {
   return (
     <React.Fragment>
       <Title>Total Revenue</Title>
       <Typography component="p" variant="h4">
-        KES. 3,024.00
+        KES {grandTotal}
       </Typography>
       <Typography color="text.secondary" sx={{ flex: 1 }}>
         on 15 November, 2022

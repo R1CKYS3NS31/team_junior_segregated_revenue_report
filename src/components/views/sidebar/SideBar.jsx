@@ -5,6 +5,7 @@ import {
   BiotechOutlined,
   ContentCutOutlined,
   Dashboard,
+  MedicationOutlined,
   People,
   RememberMeOutlined,
   SavedSearch,
@@ -63,6 +64,12 @@ export default function SideBar() {
                 <li className="sidebarListItem">
                   <RememberMeOutlined className="sidebarIcon" />
                   Radiology
+                </li>
+              </Link>
+              <Link to={"/pharmacy"} className="link">
+                <li className="sidebarListItem">
+                  <MedicationOutlined className="sidebarIcon" />
+                  Pharmacy
                 </li>
               </Link>
             </ul>
