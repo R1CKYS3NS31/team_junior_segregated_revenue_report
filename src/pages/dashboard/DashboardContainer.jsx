@@ -23,8 +23,24 @@ import PieRechartComponent from "../../components/charts/PieComponent";
 import MonthComponent from "../../components/charts/MonthComponent";
 import Total_Component from "../../components/charts/MethodPie";
 
-
-export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, setProc, rad, setRad, pharm, setPharm, RadiologyFilterTotal,ProcedureFilterTotal,  RegistrationFilterTotal,PharmacyFilterTotal, LaboratoryFilterTotal}) => {
+export const DashboardContainer = ({
+  takeDate,
+  reg,
+  setReg,
+  lab,
+  setLab,
+  proc,
+  setProc,
+  rad,
+  setRad,
+  pharm,
+  setPharm,
+  RadiologyFilterTotal,
+  ProcedureFilterTotal,
+  RegistrationFilterTotal,
+  PharmacyFilterTotal,
+  LaboratoryFilterTotal,
+}) => {
   function Copyright(props) {
     return (
       <Typography
@@ -50,20 +66,18 @@ export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, s
 
   const handlesubmit = (e) => {
     e.preventDefault();
-   
-    const dateFrom = `${from.$d.getDate()}-${from.$d.getMonth()}-${from.$d.getFullYear()}`
-    const dateTo = `${to.$d.getDate()}-${to.$d.getMonth()}-${to.$d.getFullYear()}`
 
-    takeDate(dateTo,dateFrom)
-    console.log(RegistrationFilterTotal)
+    const dateFrom = `${from.$d.getDate()}-${from.$d.getMonth()}-${from.$d.getFullYear()}`;
+    const dateTo = `${to.$d.getDate()}-${to.$d.getMonth()}-${to.$d.getFullYear()}`;
+
+    takeDate(dateTo, dateFrom);
+    console.log(RegistrationFilterTotal);
 
     // setReg(RegistrationFilterTotal)
     // setPharm(PharmacyFilterTotal)
     // setRad(RadiologyFilterTotal)
     // setProc(ProcedureFilterTotal)
     // setLab(LaboratoryFilterTotal)
-    
-
   };
 
   return (
@@ -166,18 +180,21 @@ export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, s
               aria-label="mailbox folders"
             >
               <ListItem button>
-                <ListItemText primary="Registration" secondary="13000" />
+                <ListItemText primary="Registration" secondary={reg} />
               </ListItem>
               <Divider />
               <ListItem button divider>
-                <ListItemText primary="Laboratory" secondary="13000" />
+                <ListItemText primary="Laboratory" secondary={lab} />
               </ListItem>
               <ListItem button>
-                <ListItemText primary="Procedure" secondary="13000" />
+                <ListItemText primary="Procedure" secondary={proc} />
               </ListItem>
               <Divider light />
               <ListItem button>
-                <ListItemText primary="Radiology" secondary="13000" />
+                <ListItemText primary="Radiology" secondary={rad} />
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary="Pharmacy" secondary={pharm} />
               </ListItem>
             </List>
           </Paper>
