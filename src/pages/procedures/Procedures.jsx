@@ -4,6 +4,7 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import React from "react";
+import LabRevenue from "../../components/charts/LabRevenue";
 
 export const Procedures = () => {
   // date picker
@@ -94,7 +95,7 @@ export const Procedures = () => {
         spacing={3}
         sx={{ justifyContent: "center", alignItems: "center" }}
       >
-        <h2>Revenue Report</h2>
+        <LabRevenue />
         {/* report */}
       </Grid>
     </Container>

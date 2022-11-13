@@ -9,25 +9,15 @@
                             "id":1,
                             "patient_name": "Fred Njonge",
                             "amount_paid":200,
-                            "date":"07-02-2022"
+                            "date":"07/2/3/2022",
+                            "method_of_payment":"Bank"
                         },
                         {
                             "id":2,
                             "patient_name": "Ian Odhiambo",
                             "amount_paid":200,
-                            "date":"04-01-2022"
-                        },
-                        {
-                            "id":3,
-                            "patient_name": "James Smart ",
-                            "amount_paid":200,
-                            "date":"04-09-2022"
-                        },
-                        {
-                            "id":4,
-                            "patient_name": "Evyline Kamau",
-                            "amount_paid":200,
-                            "date":"07-02-2022"
+                            "date":"07/2/2022",
+                            "method_of_payment":"Cash"
                         }
                     ],
 
@@ -36,13 +26,15 @@
                             "id":1,
                             "patient_name": "Ricky Chelagat",
                             "amount_paid":120,
-                            "date":"05-04-2022"
+                            "date":"07/2/3/2022",
+                            "method_of_payment":"NHIF"
                         },
                         {
                             "id":2,
                             "patient_name": "Triza Ndambuki",
                             "amount_paid":200,
-                            "date":"07-02-2022"
+                            "date":"07/2/2022",
+                            "method_of_payment":"Mpesa"
                         }
                     ],
 
@@ -51,13 +43,15 @@
                             "id":1,
                             "patient_name": "Agoo Clinton",
                             "amount_paid":10,
-                            "date":"07-02-2022"
+                            "date":"07/2/3/2022",
+                            "method_of_payment":"Bank"
                         },
                         {
                             "id":2,
                             "patient_name": "Wechuli Maven",
                             "amount_paid":2200,
-                            "date":"07-06-2022"
+                            "date":"07/2/2022",
+                            "method_of_payment": "Cash"
                         }
                     ],
                     "radiology":[
@@ -65,13 +59,15 @@
                             "id":1,
                             "patient_name": "Fred Otieno",
                             "amount_paid":2000,
-                            "date":"07-02-2022"
+                            "date":"07/2/3/2022",
+                            "method_of_payment": "Cash"
                         },
                         {
                             "id":2,
                             "patient_name": "Elton Ndambuki",
                             "amount_paid":1200,
-                            "date":"08-08-2022"
+                            "date":"07/2/2022",
+                            "method_of_payment": "NHIF"
                         }
                     ],
                     "pharmacy":[
@@ -79,13 +75,15 @@
                             "id":1,
                             "patient_name": "Fred Otieno",
                             "amount_paid":2000,
-                            "date":"07-02-2022"
+                            "date":"07/2/3/2022",
+                            "method_of_payment": "Mpesa"
                         },
                         {
                             "id":2,
                             "patient_name": "Elton Ndambuki",
                             "amount_paid":100,
-                            "date":"05-04-2022"
+                            "date":"07/2/2022",
+                            "method_of_payment":"Bank"
                         }
                     ]
                    
