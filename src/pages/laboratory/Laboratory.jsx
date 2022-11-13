@@ -6,16 +6,16 @@ import dayjs from "dayjs";
 import React from "react";
 
 export const Laboratory = () => {
-    // date picker
-    const newDate = new Date();
-    const [to, setTo] = React.useState(dayjs(newDate.toString()));
-    const [from, setFrom] = React.useState(dayjs(newDate.toString()));
-  
-    const handleFilter = (e) => {
-      e.preventDefault();
-      console.log(to.$d.toString());
-      console.log(from.$d.toString());
-    };
+  // date picker
+  const newDate = new Date();
+  const [to, setTo] = React.useState(dayjs(newDate.toString()));
+  const [from, setFrom] = React.useState(dayjs(newDate.toString()));
+
+  const handleFilter = (e) => {
+    e.preventDefault();
+    console.log(to.$d.toString());
+    console.log(from.$d.toString());
+  };
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <h2>Laboratory</h2>
@@ -94,9 +94,9 @@ export const Laboratory = () => {
         spacing={3}
         sx={{ justifyContent: "center", alignItems: "center" }}
       >
-        <h2>Laboratory Report</h2>
+        <h2>Revenue Report</h2>
         {/* report */}
       </Grid>
     </Container>
-  )
-}
+  );
+};
