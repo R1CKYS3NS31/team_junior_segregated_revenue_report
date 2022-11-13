@@ -13,6 +13,7 @@ import { Radiology } from "./pages/radiology/Radiology";
 import { PatientSummaries } from "./pages/patientSummaries/PatientSummaries";
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
+import { TestComponent } from "./components/test/TestComponent";
 
 function App() {
   return (
@@ -27,10 +28,13 @@ function App() {
           <Route path="/laboratory" element={<Laboratory />} />
           <Route path="/procedures" element={<Procedures />} />
           <Route path="/radiology" element={<Radiology />} />
-          <Route path="/patientsummaries" element={<PatientSummaries/>}/>
-          <Route path="/departmentsummaries" element={<DepartmentSummaries/>}/>
-          <Route path="/nhifsummaries" element={<NHIFSummaries/>}/>
-
+          <Route path="/patientsummaries" element={<PatientSummaries />} />
+          <Route
+            path="/departmentsummaries"
+            element={<DepartmentSummaries />}
+          />
+          <Route path="/nhifsummaries" element={<NHIFSummaries />} />
+          <Route path="/test" element={<TestComponent />} />
           {/* none existing routes */}
           <Route
             path="*"

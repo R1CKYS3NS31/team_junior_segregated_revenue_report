@@ -11,15 +11,8 @@ import {
   Legend,
   
 } from "recharts";
-import Title from './Title';
-
-
-import jsonData from '../data/revenue.json'
-import PieComponent from './charts/PieComponent'
-import { json } from 'd3';
-
-
-
+import Title from '../Title';
+import jsonData from "../../data/revenue.json";
 
 // import { indexes } from 'd3';
 
@@ -101,20 +94,14 @@ export default function Chart() {
 const theme = useTheme();
   return (
     <React.Fragment>
-      
-      <Title>Today</Title>
+      <Title>Department Revenue</Title>
       <ResponsiveContainer>
       
       <BarChart
       width={800}
       height={400}
       data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5
-      }}
+      bottom= {5}
     >
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
