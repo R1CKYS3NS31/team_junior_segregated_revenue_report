@@ -216,12 +216,15 @@ function App() {
   const ProcedureFilterTotal = calcTotal(ProcedureFilter)
 
 
-  const [reg, setReg] = useState(100)
+  const [reg, setReg] = useState(regTotal)
   const [lab, setLab] = useState(labTotal)
   const [proc, setProc] = useState(procTotal)
   const [pharm, setPharm] = useState(pharmTotal)
-  const [rad, setRad] = useState(200)
+  const [rad, setRad] = useState(radTotal)
 
+
+
+  console.log(labTotal)
 
   const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
 

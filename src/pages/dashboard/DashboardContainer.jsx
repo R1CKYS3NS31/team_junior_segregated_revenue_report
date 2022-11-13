@@ -19,7 +19,9 @@ import {
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
-import { Laboratory } from "../laboratory/Laboratory";
+import PieRechartComponent from "../../components/charts/PieComponent";
+import MonthComponent from "../../components/charts/MonthComponent";
+import Total_Component from "../../components/charts/MethodPie";
 
 
 export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, setProc, rad, setRad, pharm, setPharm, RadiologyFilterTotal,ProcedureFilterTotal,  RegistrationFilterTotal,PharmacyFilterTotal, LaboratoryFilterTotal}) => {
@@ -53,12 +55,13 @@ export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, s
     const dateTo = `${to.$d.getDate()}-${to.$d.getMonth()}-${to.$d.getFullYear()}`
 
     takeDate(dateTo,dateFrom)
+    console.log(RegistrationFilterTotal)
 
-    setReg(RegistrationFilterTotal)
-    setPharm(PharmacyFilterTotal)
-    setRad(RadiologyFilterTotal)
-    setProc(ProcedureFilterTotal)
-    setLab(LaboratoryFilterTotal)
+    // setReg(RegistrationFilterTotal)
+    // setPharm(PharmacyFilterTotal)
+    // setRad(RadiologyFilterTotal)
+    // setProc(ProcedureFilterTotal)
+    // setLab(LaboratoryFilterTotal)
     
 
   };
@@ -85,34 +88,34 @@ export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, s
               From:
             </label>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              openTo="year"
-              views={["year", "month", "day"]}
-              label="Year, month and date"
-              value={from}
-              onChange={(newValue) => setFrom(newValue)}
-              renderInput={(params) => (
-                <TextField {...params} helperText={null} />
-              )}
-            />
-          </LocalizationProvider>
+              <DatePicker
+                openTo="year"
+                views={["year", "month", "day"]}
+                label="Date, month and year"
+                value={from}
+                onChange={(e) => setFrom(e.target.value)}
+                renderInput={(params) => (
+                  <TextField {...params} helperText={null} />
+                )}
+              />
+            </LocalizationProvider>
           </div>
           <div className="to" style={{ paddingLeft: "10px", flex: 2 }}>
             <label htmlFor="to" style={{ paddingRight: "5px" }}>
               To:
             </label>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              openTo="year"
-              views={["year", "month", "day"]}
-              label="Year, month and date"
-              value={to}
-              onChange={(newValue) => setTo(newValue)}
-              renderInput={(params) => (
-                <TextField {...params} helperText={null} />
-              )}
-            />
-          </LocalizationProvider>
+              <DatePicker
+                openTo="year"
+                views={["year", "month", "day"]}
+                label="Date, month and year"
+                value={to}
+                onChange={(e) => setTo(e.target.value)}
+                renderInput={(params) => (
+                  <TextField {...params} helperText={null} />
+                )}
+              />
+            </LocalizationProvider>
           </div>
           <Button
             type="submit"
@@ -131,6 +134,7 @@ export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, s
       </form>
 
       {/* report */}
+
       <Grid container spacing={3}>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={9}>
@@ -142,11 +146,9 @@ export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, s
               height: 240,
             }}
           >
-            
-            <Chart reg={reg} lab={lab} rad={rad} pharm={pharm} proc={proc}/>
+            <MonthComponent />
           </Paper>
         </Grid>
-
         {/* Recent Revenue */}
         <Grid item xs={12} md={4} lg={3}>
           <Paper
@@ -180,6 +182,7 @@ export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, s
             </List>
           </Paper>
         </Grid>
+
         {/* Chart */}
         <Grid item xs={12} md={8} lg={9}>
           <Paper
@@ -193,6 +196,34 @@ export const DashboardContainer = ( {takeDate, reg, setReg, lab, setLab, proc, s
             <Chart />
           </Paper>
         </Grid>
+        {/* Chart */}
+        <Grid item xs={12} md={8} lg={5}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "row",
+              height: 290,
+            }}
+          >
+            <PieRechartComponent />
+          </Paper>
+        </Grid>
+
+        {/* Chart */}
+        <Grid item xs={12} md={8} lg={5}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+              height: 290,
+            }}
+          >
+            <Total_Component />
+          </Paper>
+        </Grid>
+
         {/* Recent Patients */}
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>

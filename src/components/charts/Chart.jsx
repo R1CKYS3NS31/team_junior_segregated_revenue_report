@@ -11,31 +11,53 @@ import {
   Legend
 } from "recharts";
 import Title from '../Title';
+import jsonData from "../../data/revenue.json";
+
+// import { indexes } from 'd3';
 
 
-export default function Chart({reg, setReg, lab, setLab, proc, setProc, rad, setRad, pharm, setPharm}) {
+// Generate Sales Data
+function createData(time, amount) {
+  return { time, amount };
+}
+
+// details.forEach(detail => {
+//   console.log(detail);
+// })
+
+
+// const filtered_dets = details.filter(det => {
+//   return det.userId == 1;
+// }) 
+// console.log(filtered_dets);
+
+
+
+
+
+export default function Chart({labTotal, regTotal, pharmTotal,radTotal, procTotal}) {
   const theme = useTheme();
   
   const data = [
     {
       name: 'laboratory',
-      revenues: lab
+      revenues: labTotal
     },
     {
       name: "Registration",
-      revenues: reg
+      revenues: regTotal
     },
     {
       name: "Pharmacy",
-      revenues: pharm
+      revenues: pharmTotal
     },
     {
       name: "Radiology",
-      revenues: rad
+      revenues: radTotal
     },
     {
       name: "Procedures",
-      revenues: proc
+      revenues: procTotal
     }
   ];
 
