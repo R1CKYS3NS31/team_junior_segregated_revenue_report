@@ -8,7 +8,8 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Legend
+  Legend,
+  
 } from "recharts";
 import Title from '../Title';
 import jsonData from "../../data/revenue.json";
@@ -44,6 +45,7 @@ const registration_details = registration.map((data)=>{return data})
 const procedures_details = procedures.map((data)=>{return data})
 const radiology_details = radiology.map((data)=>{return data})
 const pharmacy_details = pharmacy.map((data)=>{return data})
+
 
 
 let detail_total = 0;
@@ -85,25 +87,23 @@ const data = [
   }
 ];
 
-export default function Chart() {
-  const theme = useTheme();
 
+
+
+export default function Chart() {
+const theme = useTheme();
   return (
     <React.Fragment>
       <Title>Department Revenue</Title>
       <ResponsiveContainer>
+      
       <BarChart
       width={800}
       height={400}
       data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5
-      }}
+      bottom= {5}
     >
-      <CartesianGrid strokeDasharray="3" />
+      <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="name" />
       <YAxis />
       <Tooltip />
@@ -112,8 +112,11 @@ export default function Chart() {
       {/* <Bar dataKey="amount" fill="blue" />
       <Bar dataKey="amount" fill="yellow" />
       <Bar dataKey="amount" fill="black" /> */}
-    </BarChart>      
+    </BarChart>
+    
       </ResponsiveContainer>
+      
     </React.Fragment>
   );
 }
+
