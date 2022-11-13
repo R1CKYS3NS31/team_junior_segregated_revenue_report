@@ -24,10 +24,10 @@ class PieRechartComponent extends React.Component {
             "name": "radiology",
             "value": 6.14
         },
-        {
-            "name": "Others",
-            "value": 10.25
-        }
+        // {
+        //     "name": "Others",
+        //     "value": 10.25
+        // }
     ];
 
     CustomTooltip = ({ active, payload, label }) => {
@@ -46,7 +46,7 @@ class PieRechartComponent extends React.Component {
         return (
            <ResponsiveContainer>
             
-             <PieChart width={730} height={300}>
+             <PieChart width={'100vh'} height={'100vh'}>
                 <Pie data={this.pieData} color="#000000" dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={120} fill="#8884d8" >
                     {
                         this.pieData.map((entry, index) => <Cell key={`cell-${index}`} fill={this.COLORS[index % this.COLORS.length]} />)
