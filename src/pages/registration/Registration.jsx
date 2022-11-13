@@ -4,6 +4,7 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import React from "react";
+import RegRevenue from "../../components/charts/RegRevenue";
 
 export const Registration = () => {
   // date picker
@@ -94,7 +95,7 @@ export const Registration = () => {
         spacing={3}
         sx={{ justifyContent: "center", alignItems: "center" }}
       >
-        <h2>Revenue Report</h2>
+        <RegRevenue />
         {/* report */}
       </Grid>
     </Container>

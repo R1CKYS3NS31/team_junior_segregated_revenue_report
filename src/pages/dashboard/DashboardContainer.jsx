@@ -25,6 +25,7 @@ import Total_Component from "../../components/charts/MethodPie";
 
 export const DashboardContainer = ({
   takeDate,
+  grandTotal,
   reg,
   setReg,
   lab,
@@ -160,7 +161,7 @@ export const DashboardContainer = ({
               height: 240,
             }}
           >
-            <MonthComponent />
+            <MonthComponent reg={reg} pharm={pharm} lab={lab} rad={rad} proc={proc}/>
           </Paper>
         </Grid>
         {/* Recent Revenue */}
@@ -224,7 +225,7 @@ export const DashboardContainer = ({
               height: 290,
             }}
           >            
-            <PieRechartComponent reg={reg} pharm={pharm} lab={lab} rad={rad} proc={proc}/>
+            <PieRechartComponent reg={reg}   grandTotal={grandTotal} pharm={pharm} lab={lab} rad={rad} proc={proc}/>
           </Paper>
         </Grid>
 

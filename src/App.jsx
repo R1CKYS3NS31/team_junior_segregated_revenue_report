@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import jsonData from './data/revenue.json'
+import jsonData from "./data/revenue.json";
 import { useState } from "react";
 
 // components
@@ -15,218 +15,219 @@ import { Radiology } from "./pages/radiology/Radiology";
 import { PatientSummaries } from "./pages/patientSummaries/PatientSummaries";
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
-import { TestComponent } from "./components/test/TestComponent";
+import TestComponent from "./components/test/TestComponent";
 import { Pharmacy } from "./pages/pharmacy/Pharmacy";
 
 function App() {
+  const laboratory = jsonData["revenue"][0]["department"][0]["laboratory"];
+  const registration = jsonData["revenue"][0]["department"][0]["registration"];
+  const procedures = jsonData["revenue"][0]["department"][0]["procedures"];
+  const radiology = jsonData["revenue"][0]["department"][0]["radiology"];
+  const pharmacy = jsonData["revenue"][0]["department"][0]["pharmacy"];
 
-
-  const laboratory = jsonData["revenue"][0]["department"][0]["laboratory"]
-  const registration = jsonData["revenue"][0]["department"][0]["registration"]
-  const procedures = jsonData["revenue"][0]["department"][0]["procedures"]
-  const radiology = jsonData["revenue"][0]["department"][0]["radiology"]
-  const pharmacy = jsonData["revenue"][0]["department"][0]["pharmacy"]
-
-  const laboratory_details = laboratory.map((data)=>{return data})
-  const registration_details = registration.map((data)=>{return data})
-  const procedures_details = procedures.map((data)=>{return data})
-  const radiology_details = radiology.map((data)=>{return data})
-  const pharmacy_details = pharmacy.map((data)=>{return data})
+  const laboratory_details = laboratory.map((data) => {
+    return data;
+  });
+  const registration_details = registration.map((data) => {
+    return data;
+  });
+  const procedures_details = procedures.map((data) => {
+    return data;
+  });
+  const radiology_details = radiology.map((data) => {
+    return data;
+  });
+  const pharmacy_details = pharmacy.map((data) => {
+    return data;
+  });
 
   let detail_total = 0;
 
-  const [to, setTo] =useState('07-02-2022')
-  const [from, setFrom] =useState('07-02-2022')
+  const [to, setTo] = useState("07-02-2022");
+  const [from, setFrom] = useState("07-02-2022");
 
-
-  const takeDate= (to,from)=>{
+  const takeDate = (to, from) => {
     setTo(to);
     setFrom(from);
-  }
+  };
 
+  let i = 0;
 
-  let i=0;
+  const toSplitDate = to.split("-")[0];
+  const toSplitMonth = to.split("-")[1];
+  const toSplitYear = to.split("-")[2];
 
-  const toSplitDate = to.split('-')[0]
-  const toSplitMonth = to.split('-')[1]
-  const toSplitYear = to.split('-')[2]
+  const fromSplitDate = from.split("-")[0];
+  const fromSplitMonth = from.split("-")[1];
+  const fromSplitYear = from.split("-")[2];
 
-  const fromSplitDate = from.split('-')[0]
-  const fromSplitMonth = from.split('-')[1]
-  const fromSplitYear = from.split('-')[2]
+  function FilteredDates(details) {
+    for (i = 0; i < details.length; i++) {
+      let x = details[i].date.split("-")[0];
+      let y = details[i].date.split("-")[1];
+      let z = details[i].date.split("-")[2];
 
+      const d = x >= fromSplitDate && x <= toSplitDate ? x : 0;
+      const m = y >= fromSplitMonth && y <= toSplitMonth ? y : 0;
+      const Y = z >= fromSplitYear && z <= toSplitYear ? z : 0;
 
-
-  function FilteredDates(details){
-    for(i=0;i<details.length;i++){
-      let x= details[i].date.split('-')[0]
-      let y= details[i].date.split('-')[1]
-      let z= details[i].date.split('-')[2]
-
-      const d = x>=fromSplitDate && x<=toSplitDate? x: 0;
-      const m = y>=fromSplitMonth && y<=toSplitMonth? y: 0; 
-      const Y = z>=fromSplitYear && z<=toSplitYear? z: 0;
-
-      return `${d}-${m}-${Y}`
-    
+      return `${d}-${m}-${Y}`;
     }
   }
 
-
-  function FilterAdder(data){
-    const filtered_data = data.filter(det => {
-      if(fromSplitYear<toSplitYear){
+  function FilterAdder(data) {
+    const filtered_data = data.filter((det) => {
+      if (fromSplitYear < toSplitYear) {
         // console.log("Different Year")
-        if(fromSplitMonth<toSplitMonth || fromSplitMonth>toSplitMonth){
+        if (fromSplitMonth < toSplitMonth || fromSplitMonth > toSplitMonth) {
           // console.log("Different Month")
-          if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
+          if (fromSplitDate < toSplitDate || fromSplitDate > toSplitDate) {
             // console.log("Different Day")
-    
-            const newdate = FilteredDates(data)
-            // console.log(newdate)
-            if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
-              return  det.date == newdate
-            }
-        
-          }
-          else{
-            // console.log("Same Day")
-            const newdate = FilteredDates(data)
-            // console.log(newdate)
-            if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
-              return  det.date == newdate
-            }
-    
-            else{console.log("Nope")}   }
-        }
-        else{
-          // console.log("Same Month")
-          if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
-            console.log("Different Day")
-            const newdate = FilteredDates(data)
-            // console.log(newdate)
-            if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
-              return  det.date == newdate
-            }
-      
-            else{console.log("Nope")}
-            
-          }
-          else{
-            // console.log("Same Day")
-            const newdate = FilteredDates(data)
-            // console.log(newdate)
-            if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
-              return  det.date == newdate
-            }
-              }
-        }
-      }
-    
-    
-      else if(fromSplitYear==toSplitYear){
-          // console.log("Same Year")
-        if(fromSplitMonth<toSplitMonth || fromSplitMonth>toSplitMonth){
-            // console.log("Different Month")
-    
-          if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
-            const newdate = FilteredDates(data)
-             console.log(newdate)
-            if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
-              return  det.date == newdate
-            }
-                
-          }
-          else{
-            // console.log("Same Day")
-            const newdate = FilteredDates(data)
-            // console.log(newdate)
-            if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
-              return det.date == det.date == newdate
-            }
-                
-    
-          }
-          
-        }
-        else{
-          // console.log("Same Month")
-    
-          if(fromSplitDate<toSplitDate || fromSplitDate>toSplitDate){
-            // console.log("Different Day")
-    
-            const newdate = FilteredDates()
-            // console.log(newdate)
-            // console.log(newdate)
-            if(newdate.split('-')[0] != 0 && newdate.split('-')[1] != 0 && newdate.split('-')[2] != 0){
-              return det.date == newdate
-            }
-                
-          }
-          else{
-            // console.log("Same day")
-            const newdate = `${fromSplitDate}-${fromSplitMonth}-${fromSplitYear}`
-            // console.log(newdate)
-            return det.date == newdate
-          
-          }
-        }
-    
-      }
-    
-      else{
-        console.log("Invalid Filter")
-      }
-    
 
-    })
+            const newdate = FilteredDates(data);
+            // console.log(newdate)
+            if (
+              newdate.split("-")[0] != 0 &&
+              newdate.split("-")[1] != 0 &&
+              newdate.split("-")[2] != 0
+            ) {
+              return det.date == newdate;
+            }
+          } else {
+            // console.log("Same Day")
+            const newdate = FilteredDates(data);
+            // console.log(newdate)
+            if (
+              newdate.split("-")[0] != 0 &&
+              newdate.split("-")[1] != 0 &&
+              newdate.split("-")[2] != 0
+            ) {
+              return det.date == newdate;
+            } else {
+              console.log("Nope");
+            }
+          }
+        } else {
+          // console.log("Same Month")
+          if (fromSplitDate < toSplitDate || fromSplitDate > toSplitDate) {
+            console.log("Different Day");
+            const newdate = FilteredDates(data);
+            // console.log(newdate)
+            if (
+              newdate.split("-")[0] != 0 &&
+              newdate.split("-")[1] != 0 &&
+              newdate.split("-")[2] != 0
+            ) {
+              return det.date == newdate;
+            } else {
+              console.log("Nope");
+            }
+          } else {
+            // console.log("Same Day")
+            const newdate = FilteredDates(data);
+            // console.log(newdate)
+            if (
+              newdate.split("-")[0] != 0 &&
+              newdate.split("-")[1] != 0 &&
+              newdate.split("-")[2] != 0
+            ) {
+              return det.date == newdate;
+            }
+          }
+        }
+      } else if (fromSplitYear == toSplitYear) {
+        // console.log("Same Year")
+        if (fromSplitMonth < toSplitMonth || fromSplitMonth > toSplitMonth) {
+          // console.log("Different Month")
+
+          if (fromSplitDate < toSplitDate || fromSplitDate > toSplitDate) {
+            const newdate = FilteredDates(data);
+            console.log(newdate);
+            if (
+              newdate.split("-")[0] != 0 &&
+              newdate.split("-")[1] != 0 &&
+              newdate.split("-")[2] != 0
+            ) {
+              return det.date == newdate;
+            }
+          } else {
+            // console.log("Same Day")
+            const newdate = FilteredDates(data);
+            // console.log(newdate)
+            if (
+              newdate.split("-")[0] != 0 &&
+              newdate.split("-")[1] != 0 &&
+              newdate.split("-")[2] != 0
+            ) {
+              return (det.date == det.date) == newdate;
+            }
+          }
+        } else {
+          // console.log("Same Month")
+
+          if (fromSplitDate < toSplitDate || fromSplitDate > toSplitDate) {
+            // console.log("Different Day")
+
+            const newdate = FilteredDates();
+            // console.log(newdate)
+            // console.log(newdate)
+            if (
+              newdate.split("-")[0] != 0 &&
+              newdate.split("-")[1] != 0 &&
+              newdate.split("-")[2] != 0
+            ) {
+              return det.date == newdate;
+            }
+          } else {
+            // console.log("Same day")
+            const newdate = `${fromSplitDate}-${fromSplitMonth}-${fromSplitYear}`;
+            // console.log(newdate)
+            return det.date == newdate;
+          }
+        }
+      } else {
+        console.log("Invalid Filter");
+      }
+    });
 
     return filtered_data;
-
   }
 
-
-  function calcTotal(detail){
+  function calcTotal(detail) {
     detail_total = 0;
-    for (var i=0; i < detail.length; i++) {
-      const amount = detail[i]["amount_paid"]
-      detail_total += amount
+    for (var i = 0; i < detail.length; i++) {
+      const amount = detail[i]["amount_paid"];
+      detail_total += amount;
     }
     return detail_total;
   }
 
+  const labTotal = calcTotal(laboratory_details);
+  const regTotal = calcTotal(registration_details);
+  const procTotal = calcTotal(procedures_details);
+  const radTotal = calcTotal(radiology_details);
+  const pharmTotal = calcTotal(pharmacy_details);
 
-  const labTotal = calcTotal(laboratory_details)
-  const regTotal = calcTotal(registration_details)
-  const procTotal = calcTotal(procedures_details)
-  const radTotal = calcTotal(radiology_details)
-  const pharmTotal = calcTotal(pharmacy_details)
+  const RegistrationFilter = FilterAdder(registration);
+  const LaboratoryFilter = FilterAdder(laboratory);
+  const RadiologyFilter = FilterAdder(radiology);
+  const PharmacyFilter = FilterAdder(pharmacy);
+  const ProcedureFilter = FilterAdder(procedures);
 
+  const RegistrationFilterTotal = calcTotal(RegistrationFilter);
+  const LaboratoryFilterTotal = calcTotal(LaboratoryFilter);
+  const RadiologyFilterTotal = calcTotal(RadiologyFilter);
+  const PharmacyFilterTotal = calcTotal(PharmacyFilter);
+  const ProcedureFilterTotal = calcTotal(ProcedureFilter);
 
-  const RegistrationFilter = FilterAdder(registration)
-  const LaboratoryFilter = FilterAdder(laboratory)
-  const RadiologyFilter = FilterAdder(radiology)
-  const PharmacyFilter = FilterAdder(pharmacy)
-  const ProcedureFilter = FilterAdder(procedures)
+  const [reg, setReg] = useState(regTotal);
+  const [lab, setLab] = useState(labTotal);
+  const [proc, setProc] = useState(procTotal);
+  const [pharm, setPharm] = useState(pharmTotal);
+  const [rad, setRad] = useState(radTotal);
 
-
-  const RegistrationFilterTotal = calcTotal(RegistrationFilter)
-  const LaboratoryFilterTotal = calcTotal(LaboratoryFilter)
-  const RadiologyFilterTotal = calcTotal(RadiologyFilter)
-  const PharmacyFilterTotal = calcTotal(PharmacyFilter)
-  const ProcedureFilterTotal = calcTotal(ProcedureFilter)
-
-
-  const [reg, setReg] = useState(regTotal)
-  const [lab, setLab] = useState(labTotal)
-  const [proc, setProc] = useState(procTotal)
-  const [pharm, setPharm] = useState(pharmTotal)
-  const [rad, setRad] = useState(radTotal)
-
-
-
-  const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
-  console.log(grandTotal)
+  const grandTotal = labTotal + regTotal + procTotal + radTotal + pharmTotal;
+  console.log(grandTotal);
 
   return (
     <Router>
@@ -234,27 +235,31 @@ function App() {
       <div className="container">
         <SideBar />
         <Routes>
-          <Route path={"/"} exact element={
-                <DashboardContainer 
-                  grandTotal={grandTotal}
-                  takeDate={takeDate}
-                  reg={reg}
-                  setReg={setReg}
-                  setLab={setLab}
-                  lab={lab}
-                  pharm={pharm}
-                  setPharm={setPharm}
-                  rad={rad}
-                  setRad={setRad}
-                  setProc={setProc}
-                  proc={proc}
-                  RegistrationFilterTotal={RegistrationFilterTotal} 
-                  LaboratoryFilterTotal={LaboratoryFilterTotal}  
-                  PharmacyFilterTotal={PharmacyFilterTotal}  
-                  ProcedureFilterTotal={ProcedureFilterTotal}  
-                  RadiologyFilterTotal={RadiologyFilterTotal}          
-                  />
-                } />
+          <Route
+            path={"/"}
+            exact
+            element={
+              <DashboardContainer
+                grandTotal={grandTotal}
+                takeDate={takeDate}
+                reg={reg}
+                setReg={setReg}
+                setLab={setLab}
+                lab={lab}
+                pharm={pharm}
+                setPharm={setPharm}
+                rad={rad}
+                setRad={setRad}
+                setProc={setProc}
+                proc={proc}
+                RegistrationFilterTotal={RegistrationFilterTotal}
+                LaboratoryFilterTotal={LaboratoryFilterTotal}
+                PharmacyFilterTotal={PharmacyFilterTotal}
+                ProcedureFilterTotal={ProcedureFilterTotal}
+                RadiologyFilterTotal={RadiologyFilterTotal}
+              />
+            }
+          />
           <Route path={"/workload"} element={<Workload />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/laboratory" element={<Laboratory />} />
@@ -311,4 +316,3 @@ function App() {
 }
 
 export default App;
-
