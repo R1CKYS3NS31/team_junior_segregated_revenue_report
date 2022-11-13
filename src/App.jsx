@@ -33,7 +33,9 @@ function App() {
   const pharmacy_details = pharmacy.map((data)=>{return data})
 
   let detail_total = 0;
-
+  const newDate = new Date()
+  const today = `${newDate.getDate()}-${newDate.getMonth()}-${newDate.getFullYear()}` 
+  console.log(today)
   const [to, setTo] =useState('07-02-2022')
   const [from, setFrom] =useState('07-02-2022')
 
@@ -215,6 +217,10 @@ function App() {
   const PharmacyFilterTotal = calcTotal(PharmacyFilter)
   const ProcedureFilterTotal = calcTotal(ProcedureFilter)
 
+  console.log(RegistrationFilterTotal)
+  console.log(LaboratoryFilterTotal)
+  console.log(RadiologyFilterTotal)
+  console.log(ProcedureFilterTotal)
 
   const [reg, setReg] = useState(regTotal)
   const [lab, setLab] = useState(labTotal)

@@ -44,13 +44,7 @@ class PieRechartComponent extends React.Component {
 
     render() {
         return (
-<<<<<<< HEAD
              <PieChart width={730} height={300}>
-=======
-           <ResponsiveContainer>
-            
-             <PieChart width={'100vh'} height={'100vh'}>
->>>>>>> refs/remotes/origin/main
                 <Pie data={this.pieData} color="#000000" dataKey="value" nameKey="name" cx="50%" cy="50%" outerRadius={120} fill="#8884d8" >
                     {
                         this.pieData.map((entry, index) => <Cell key={`cell-${index}`} fill={this.COLORS[index % this.COLORS.length]} />)

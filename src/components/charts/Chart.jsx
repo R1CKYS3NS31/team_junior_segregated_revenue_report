@@ -35,32 +35,33 @@ function createData(time, amount) {
 
 
 
-export default function Chart({labTotal, regTotal, pharmTotal,radTotal, procTotal}) {
+export default function Chart({lab, reg, pharm,rad, proc}) {
   const theme = useTheme();
   
   const data = [
     {
       name: 'laboratory',
-      revenues: labTotal
+      revenues: lab
     },
     {
       name: "Registration",
-      revenues: regTotal
+      revenues: reg
     },
     {
       name: "Pharmacy",
-      revenues: pharmTotal
+      revenues: pharm
     },
     {
       name: "Radiology",
-      revenues: radTotal
+      revenues: rad
     },
     {
       name: "Procedures",
-      revenues: procTotal
+      revenues: proc
     }
   ];
 
+ 
   return (
     <React.Fragment>
       <Title>Department Revenue</Title>
