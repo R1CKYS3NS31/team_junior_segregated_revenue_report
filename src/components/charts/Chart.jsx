@@ -90,7 +90,7 @@ export default function Chart() {
 
   return (
     <React.Fragment>
-      <Title>Today</Title>
+      <Title>Department Revenue</Title>
       <ResponsiveContainer>
       <BarChart
       width={800}

@@ -107,7 +107,7 @@ export const DashboardContainer = () => {
               ml: 4,
               mr: 4,
               flex: 1,
-              color:'white',
+              color: "white",
               backgroundColor: "lightblue",
             }}
           >
@@ -116,6 +116,7 @@ export const DashboardContainer = () => {
         </Grid>
       </form>
 
+      {/* report */}
       <Grid container spacing={3}>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={9}>
@@ -130,21 +131,8 @@ export const DashboardContainer = () => {
             <Chart />
           </Paper>
         </Grid>
-        {/* Chart */}
-        <Grid item xs={12} md={8} lg={9}>
-          <Paper
-            sx={{
-              p: 2,
-              display: "flex",
-              flexDirection: "column",
-              height: 240,
-            }}
-          >
-            <Chart />
-          </Paper>
-        </Grid>
-        {/* Recent Revenue */}
 
+        {/* Recent Revenue */}
         <Grid item xs={12} md={4} lg={3}>
           <Paper
             sx={{
@@ -154,7 +142,7 @@ export const DashboardContainer = () => {
               // height: '100%',
             }}
           >
-            {/* <Deposits /> */}
+            {/* <Departments /> */}
             <List
               sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
               component="nav"
@@ -175,6 +163,19 @@ export const DashboardContainer = () => {
                 <ListItemText primary="Radiology" secondary="13000" />
               </ListItem>
             </List>
+          </Paper>
+        </Grid>
+        {/* Chart */}
+        <Grid item xs={12} md={8} lg={9}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+              height: 240,
+            }}
+          >
+            <Chart />
           </Paper>
         </Grid>
         {/* Recent Patients */}
