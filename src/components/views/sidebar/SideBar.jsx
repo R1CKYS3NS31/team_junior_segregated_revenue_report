@@ -5,11 +5,12 @@ import {
   BiotechOutlined,
   ContentCutOutlined,
   Dashboard,
-  MedicationOutlined,
+  
   People,
   RememberMeOutlined,
   SavedSearch,
   ShoppingCart,
+  Vaccines,
 } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
@@ -68,7 +69,7 @@ export default function SideBar() {
               </Link>
               <Link to={"/pharmacy"} className="link">
                 <li className="sidebarListItem">
-                  <MedicationOutlined className="sidebarIcon" />
+                  <Vaccines className="sidebarIcon" />
                   Pharmacy
                 </li>
               </Link>

@@ -215,6 +215,7 @@ export const DashboardContainer = ({
         </Grid>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={5}>
+          
           <Paper
             sx={{
               p: 2,
@@ -222,8 +223,8 @@ export const DashboardContainer = ({
               flexDirection: "row",
               height: 290,
             }}
-          >
-            <PieRechartComponent />
+          >            
+            <PieRechartComponent reg={reg} pharm={pharm} lab={lab} rad={rad} proc={proc}/>
           </Paper>
         </Grid>
 
@@ -242,11 +243,11 @@ export const DashboardContainer = ({
         </Grid>
 
         {/* Recent Patients */}
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
             <Patients />
           </Paper>
-        </Grid>
+        </Grid> */}
       </Grid>
       <Copyright sx={{ pt: 4 }} />
     </Container>
