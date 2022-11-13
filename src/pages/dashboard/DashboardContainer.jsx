@@ -21,7 +21,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import PieRechartComponent from "../../components/charts/PieComponent";
 import MonthComponent from "../../components/charts/MonthComponent";
-import Total_Component from "../../components/charts/Total_Component";
+import Total_Component from "../../components/charts/MethodPie";
 
 export const DashboardContainer = () => {
   function Copyright(props) {
@@ -77,7 +77,7 @@ export const DashboardContainer = () => {
               <DatePicker
                 openTo="year"
                 views={["year", "month", "day"]}
-                label="Year, month and date"
+                label="Date, month and year"
                 value={from}
                 onChange={(e) => setFrom(e.target.value)}
                 renderInput={(params) => (
@@ -94,7 +94,7 @@ export const DashboardContainer = () => {
               <DatePicker
                 openTo="year"
                 views={["year", "month", "day"]}
-                label="Year, month and date"
+                label="Date, month and year"
                 value={to}
                 onChange={(e) => setTo(e.target.value)}
                 renderInput={(params) => (
@@ -120,7 +120,8 @@ export const DashboardContainer = () => {
       </form>
 
       {/* report */}
-      
+
+      <Grid container spacing={3}>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={9}>
           <Paper
@@ -131,47 +132,7 @@ export const DashboardContainer = () => {
               height: 240,
             }}
           >
-            <Chart />
-          </Paper>
-        </Grid>
-        <Grid container spacing={3}>
-         {/* Chart */}
-         <Grid item xs={12} md={8} lg={9}>
-          <Paper
-            sx={{
-              p: 2,
-              display: "flex",
-              flexDirection: "column",
-              height: 240,
-            }}
-          >
-            <PieRechartComponent/>
-          </Paper>
-        </Grid>
-         {/* Chart */}
-         <Grid item xs={12} md={8} lg={9}>
-          <Paper
-            sx={{
-              p: 2,
-              display: "flex",
-              flexDirection: "column",
-              height: 240,
-            }}
-          >
-            <MonthComponent/>
-          </Paper>
-        </Grid>
-         {/* Chart */}
-         <Grid item xs={12} md={8} lg={9}>
-          <Paper
-            sx={{
-              p: 2,
-              display: "flex",
-              flexDirection: "column",
-              height: 240,
-            }}
-          >
-            <Total_Component/>
+            <MonthComponent />
           </Paper>
         </Grid>
         {/* Recent Revenue */}
@@ -207,6 +168,48 @@ export const DashboardContainer = () => {
             </List>
           </Paper>
         </Grid>
+
+        {/* Chart */}
+        <Grid item xs={12} md={8} lg={9}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+              height: 240,
+            }}
+          >
+            <Chart />
+          </Paper>
+        </Grid>
+        {/* Chart */}
+        <Grid item xs={12} md={8} lg={5}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "row",
+              height: 290,
+            }}
+          >
+            <PieRechartComponent />
+          </Paper>
+        </Grid>
+
+        {/* Chart */}
+        <Grid item xs={12} md={8} lg={5}>
+          <Paper
+            sx={{
+              p: 2,
+              display: "flex",
+              flexDirection: "column",
+              height: 290,
+            }}
+          >
+            <Total_Component />
+          </Paper>
+        </Grid>
+
         {/* Recent Patients */}
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
@@ -216,5 +219,5 @@ export const DashboardContainer = () => {
       </Grid>
       <Copyright sx={{ pt: 4 }} />
     </Container>
-  )
+  );
 };
