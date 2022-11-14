@@ -66,16 +66,16 @@ export default function SideBar() {
                   Radiology
                 </li>
               </Link>
-              <Link to={"/pharmacy"} className="link">
+              {/* <Link to={"/pharmacy"} className="link">
                 <li className="sidebarListItem">
                   <MedicationOutlined className="sidebarIcon" />
                   Pharmacy
                 </li>
-              </Link>
+              </Link> */}
             </ul>
           </div>
           {/* quick menu */}
-          <div className="sidebarMenu">
+          {/* <div className="sidebarMenu">
             <h3 className="sidebarTitle">Summaries</h3>
             <ul className="sidebarList">
               <Link to={"/patientsummaries"} className="link">
@@ -97,7 +97,7 @@ export default function SideBar() {
                 </li>
               </Link>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
