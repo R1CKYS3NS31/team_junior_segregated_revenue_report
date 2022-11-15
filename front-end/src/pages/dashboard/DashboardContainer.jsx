@@ -67,18 +67,32 @@ export const DashboardContainer = ({
 
   const handlesubmit = (e) => {
     e.preventDefault();
+   
+   
+   
+    const dateFrom = `${from.$d.getDate()}-${from.$d.getMonth()}-${from.$d.getFullYear()}`
+    const dateTo = `${to.$d.getDate()}-${to.$d.getMonth()}-${to.$d.getFullYear()}`
 
-    const dateFrom = `${from.$d.getDate()}-${from.$d.getMonth()}-${from.$d.getFullYear()}`;
-    const dateTo = `${to.$d.getDate()}-${to.$d.getMonth()}-${to.$d.getFullYear()}`;
+    takeDate(dateTo,dateFrom)
+ 
 
-    takeDate(dateTo, dateFrom);
-    console.log(RegistrationFilterTotal);
+    setReg(RegistrationFilterTotal)
+    setPharm(PharmacyFilterTotal)
+    setRad(RadiologyFilterTotal)
+    setProc(ProcedureFilterTotal)
+    setLab(LaboratoryFilterTotal)
+    
+    console.log(RegistrationFilterTotal)
+    console.log(PharmacyFilterTotal)
+    console.log(RadiologyFilterTotal)
+    console.log(ProcedureFilterTotal)
+    console.log(LaboratoryFilterTotal)
 
-    // setReg(RegistrationFilterTotal)
-    // setPharm(PharmacyFilterTotal)
-    // setRad(RadiologyFilterTotal)
-    // setProc(ProcedureFilterTotal)
-    // setLab(LaboratoryFilterTotal)
+    // window.location.reload()
+
+
+    
+
   };
 
   return (
@@ -103,34 +117,34 @@ export const DashboardContainer = ({
               From:
             </label>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
-                openTo="year"
-                views={["year", "month", "day"]}
-                label="Date, month and year"
-                value={from}
-                onChange={(e) => setFrom(e.target.value)}
-                renderInput={(params) => (
-                  <TextField {...params} helperText={null} />
-                )}
-              />
-            </LocalizationProvider>
+            <DatePicker
+              openTo="year"
+              views={["year", "month", "day"]}
+              label="Year, month and date"
+              value={from}
+              onChange={(newValue) => setFrom(newValue)}
+              renderInput={(params) => (
+                <TextField {...params} helperText={null} />
+              )}
+            />
+          </LocalizationProvider>
           </div>
           <div className="to" style={{ paddingLeft: "10px", flex: 2 }}>
             <label htmlFor="to" style={{ paddingRight: "5px" }}>
               To:
             </label>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-              <DatePicker
-                openTo="year"
-                views={["year", "month", "day"]}
-                label="Date, month and year"
-                value={to}
-                onChange={(e) => setTo(e.target.value)}
-                renderInput={(params) => (
-                  <TextField {...params} helperText={null} />
-                )}
-              />
-            </LocalizationProvider>
+            <DatePicker
+              openTo="year"
+              views={["year", "month", "day"]}
+              label="Year, month and date"
+              value={to}
+              onChange={(newValue) => setTo(newValue)}
+              renderInput={(params) => (
+                <TextField {...params} helperText={null} />
+              )}
+            />
+          </LocalizationProvider>
           </div>
           <Button
             type="submit"
@@ -161,7 +175,8 @@ export const DashboardContainer = ({
               height: 240,
             }}
           >
-            <MonthComponent reg={reg} pharm={pharm} lab={lab} rad={rad} proc={proc}/>
+            {/* <MonthComponent reg={reg} pharm={pharm} lab={lab} rad={rad} proc={proc}/> */}
+            <Chart lab={lab} proc={proc} rad={rad} pharm={pharm} reg={reg}/>
           </Paper>
         </Grid>
         {/* Recent Revenue */}
@@ -211,8 +226,7 @@ export const DashboardContainer = ({
               height: 240,
             }}
           >
-            <Chart />
-          </Paper>
+              </Paper>
         </Grid>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={5}>

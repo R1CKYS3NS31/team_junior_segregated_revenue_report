@@ -16,11 +16,11 @@ class MonthComponent extends React.Component {
   data = [
     {
       name: "Jan 2019",
-      Laboratory: this.props.lab,
-      Registration: this.props.reg,
-      Pharmacy: this.props.pharm,
-      Radiology: this.props.rad,
-      Procedures: this.props.proc,
+      Laboratory: 2,
+      Registration: 34,
+      Pharmacy: 56,
+      Radiology: 56,
+      Procedures: 67,
     },
     {
       name: "Feb 2019",

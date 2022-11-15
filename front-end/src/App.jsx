@@ -42,9 +42,11 @@ function App() {
   });
 
   let detail_total = 0;
-
-  const [to, setTo] = useState("07-02-2022");
-  const [from, setFrom] = useState("07-02-2022");
+  const newDate = new Date()
+  const today = `${newDate.getDate()}-${newDate.getMonth()}-${newDate.getFullYear()}` 
+  console.log(today)
+  const [to, setTo] =useState('07-02-2022')
+  const [from, setFrom] =useState('07-02-2022')
 
   const takeDate = (to, from) => {
     setTo(to);
@@ -220,14 +222,22 @@ function App() {
   const PharmacyFilterTotal = calcTotal(PharmacyFilter);
   const ProcedureFilterTotal = calcTotal(ProcedureFilter);
 
-  const [reg, setReg] = useState(regTotal);
-  const [lab, setLab] = useState(labTotal);
-  const [proc, setProc] = useState(procTotal);
-  const [pharm, setPharm] = useState(pharmTotal);
-  const [rad, setRad] = useState(radTotal);
 
-  const grandTotal = labTotal + regTotal + procTotal + radTotal + pharmTotal;
-  console.log(grandTotal);
+  console.log(RegistrationFilterTotal)
+  console.log(LaboratoryFilterTotal)
+  console.log(RadiologyFilterTotal)
+  console.log(ProcedureFilterTotal)
+
+  const [reg, setReg] = useState(regTotal)
+  const [lab, setLab] = useState(labTotal)
+  const [proc, setProc] = useState(procTotal)
+  const [pharm, setPharm] = useState(pharmTotal)
+  const [rad, setRad] = useState(radTotal)
+
+
+
+  const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
+  console.log(grandTotal)
 
   return (
     <Router>
@@ -265,7 +275,7 @@ function App() {
           <Route path="/laboratory" element={<Laboratory />} />
           <Route path="/procedures" element={<Procedures />} />
           <Route path="/radiology" element={<Radiology />} />
-          <Route path="/pharmacy" element={<Pharmacy />} />
+          {/* <Route path="/pharmacy" element={<Pharmacy />} /> */}
           <Route path="/patientsummaries" element={<PatientSummaries />} />
           <Route
             path="/departmentsummaries"
