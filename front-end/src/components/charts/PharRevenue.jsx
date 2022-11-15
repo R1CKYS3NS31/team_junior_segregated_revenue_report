@@ -56,7 +56,7 @@ const data = [
 export default function RegRevenue() {
   return (
     <>
-      <h1>Registration revenue generated per month</h1>
+      <h1>Pharmacy revenue generated per month</h1>
       <LineChart
         width={800}
         height={800}

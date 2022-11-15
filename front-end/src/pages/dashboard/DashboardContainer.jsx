@@ -5,6 +5,7 @@ import Paper from "@mui/material/Paper";
 import Chart from "../../components/charts/Chart";
 import Deposits from "../../components/Deposits";
 import { Patients } from "../../components/Patients";
+
 import {
   Box,
   Button,
@@ -20,8 +21,8 @@ import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import PieRechartComponent from "../../components/charts/PieComponent";
-import MonthComponent from "../../components/charts/MonthComponent";
 import Total_Component from "../../components/charts/MethodPie";
+// import Order from "../../components/charts/Order";
 
 export const DashboardContainer = ({
   takeDate,
@@ -177,6 +178,7 @@ export const DashboardContainer = ({
           >
             {/* <MonthComponent reg={reg} pharm={pharm} lab={lab} rad={rad} proc={proc}/> */}
             <Chart lab={lab} proc={proc} rad={rad} pharm={pharm} reg={reg}/>
+           
           </Paper>
         </Grid>
         {/* Recent Revenue */}
@@ -188,7 +190,9 @@ export const DashboardContainer = ({
               flexDirection: "column",
               // height: '100%',
             }}
+            
           >
+            
             {/* <Departments /> */}
             <List
               sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
@@ -213,9 +217,10 @@ export const DashboardContainer = ({
                 <ListItemText primary="Pharmacy" secondary={pharm} />
               </ListItem>
             </List>
+            
           </Paper>
         </Grid>
-
+        <Total_Component />
         {/* Chart */}
         <Grid item xs={12} md={8} lg={9}>
           <Paper
@@ -230,7 +235,7 @@ export const DashboardContainer = ({
         </Grid>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={5}>
-          
+          {/* < Order/> */}
           <Paper
             sx={{
               p: 2,
@@ -238,8 +243,8 @@ export const DashboardContainer = ({
               flexDirection: "row",
               height: 290,
             }}
-          >            
-            <PieRechartComponent reg={reg}   grandTotal={grandTotal} pharm={pharm} lab={lab} rad={rad} proc={proc}/>
+          >
+        
           </Paper>
         </Grid>
 
@@ -253,7 +258,7 @@ export const DashboardContainer = ({
               height: 290,
             }}
           >
-            <Total_Component />
+           
           </Paper>
         </Grid>
 

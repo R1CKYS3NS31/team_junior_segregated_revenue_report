@@ -16,7 +16,7 @@ import { PatientSummaries } from "./pages/patientSummaries/PatientSummaries";
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
 import TestComponent from "./components/test/TestComponent";
-import { Pharmacy } from "./pages/pharmacy/Pharmacy";
+import { ConstructionOutlined } from "@mui/icons-material";
 
 function App() {
   const laboratory = jsonData["revenue"][0]["department"][0]["laboratory"];
@@ -44,7 +44,8 @@ function App() {
   let detail_total = 0;
   const newDate = new Date()
   const today = `${newDate.getDate()}-${newDate.getMonth()}-${newDate.getFullYear()}` 
-  console.log(today)
+
+
   const [to, setTo] =useState('07-02-2022')
   const [from, setFrom] =useState('07-02-2022')
 
@@ -93,7 +94,7 @@ function App() {
               newdate.split("-")[1] != 0 &&
               newdate.split("-")[2] != 0
             ) {
-              return det.date == newdate;
+              return det.date = newdate;
             }
           } else {
             // console.log("Same Day")
@@ -104,7 +105,7 @@ function App() {
               newdate.split("-")[1] != 0 &&
               newdate.split("-")[2] != 0
             ) {
-              return det.date == newdate;
+              return det.date = newdate;
             } else {
               console.log("Nope");
             }
@@ -120,7 +121,7 @@ function App() {
               newdate.split("-")[1] != 0 &&
               newdate.split("-")[2] != 0
             ) {
-              return det.date == newdate;
+              return det.date = newdate;
             } else {
               console.log("Nope");
             }
@@ -133,7 +134,7 @@ function App() {
               newdate.split("-")[1] != 0 &&
               newdate.split("-")[2] != 0
             ) {
-              return det.date == newdate;
+              return det.date = newdate;
             }
           }
         }
@@ -150,7 +151,7 @@ function App() {
               newdate.split("-")[1] != 0 &&
               newdate.split("-")[2] != 0
             ) {
-              return det.date == newdate;
+              return det.date = newdate;
             }
           } else {
             // console.log("Same Day")
@@ -178,13 +179,13 @@ function App() {
               newdate.split("-")[1] != 0 &&
               newdate.split("-")[2] != 0
             ) {
-              return det.date == newdate;
+              return det.date = newdate;
             }
           } else {
             // console.log("Same day")
             const newdate = `${fromSplitDate}-${fromSplitMonth}-${fromSplitYear}`;
             // console.log(newdate)
-            return det.date == newdate;
+            return det.date = newdate;
           }
         }
       } else {
@@ -195,6 +196,7 @@ function App() {
     return filtered_data;
   }
 
+  // ConstructionOutlined.log
   function calcTotal(detail) {
     detail_total = 0;
     for (var i = 0; i < detail.length; i++) {
@@ -204,11 +206,11 @@ function App() {
     return detail_total;
   }
 
-  const labTotal = calcTotal(laboratory_details);
-  const regTotal = calcTotal(registration_details);
-  const procTotal = calcTotal(procedures_details);
-  const radTotal = calcTotal(radiology_details);
-  const pharmTotal = calcTotal(pharmacy_details);
+  const labTotal = calcTotal(laboratory);
+  const regTotal = calcTotal(registration);
+  const procTotal = calcTotal(procedures);
+  const radTotal = calcTotal(radiology);
+  const pharmTotal = calcTotal(pharmacy);
 
   const RegistrationFilter = FilterAdder(registration);
   const LaboratoryFilter = FilterAdder(laboratory);
@@ -224,20 +226,19 @@ function App() {
 
 
   console.log(RegistrationFilterTotal)
-  console.log(LaboratoryFilterTotal)
-  console.log(RadiologyFilterTotal)
-  console.log(ProcedureFilterTotal)
 
-  const [reg, setReg] = useState(regTotal)
-  const [lab, setLab] = useState(labTotal)
-  const [proc, setProc] = useState(procTotal)
-  const [pharm, setPharm] = useState(pharmTotal)
-  const [rad, setRad] = useState(radTotal)
+  
+
+  const [reg, setReg] = useState(RegistrationFilterTotal)
+  const [lab, setLab] = useState(LaboratoryFilterTotal)
+  const [proc, setProc] = useState(RadiologyFilterTotal)
+  const [pharm, setPharm] = useState(PharmacyFilterTotal)
+  const [rad, setRad] = useState(ProcedureFilterTotal)
 
 
 
   const grandTotal = labTotal+regTotal+procTotal+radTotal+pharmTotal;
-  console.log(grandTotal)
+ 
 
   return (
     <Router>

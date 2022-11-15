@@ -41,22 +41,22 @@ const data = [
   },
   {
     name: "Oct",
-    revenue: 90300,
+    revenue: 4300,
   },
   {
     name: "Nov",
-    revenue: 89300,
+    revenue: 4300,
   },
   {
     name: "Dec",
-    revenue: 43300,
+    revenue: 4300,
   },
 ];
 
-export default function RegRevenue() {
+export default function ProRevenue() {
   return (
     <>
-      <h1>Laboratory revenue generated per month</h1>
+      <h1>Procedures revenue generated per month</h1>
       <LineChart
         width={800}
         height={800}
