@@ -26,6 +26,7 @@ function App() {
   const [procedureRevenue, setProcedureRevenue] = useState(0);
   const [radiologyRevenue, setRadiologyRevenue] = useState(0);
   const [pharmacyRevenue, setPharmacyRevenue] = useState(0);
+  const [totalDeptRevenue, setTotalDeptRevenue] = useState(0);
 
   // get departments
   useEffect(() => {
@@ -52,9 +53,20 @@ function App() {
     setProcedureRevenue(deptRevenue(departments?.procedures));
     setRadiologyRevenue(deptRevenue(departments?.radiology));
     setPharmacyRevenue(deptRevenue(departments?.pharmacy));
-  }, [departments]);
 
-  // console.log(laboratoryRevenue);
+    const totalRev =
+      registrationRevenue +
+      laboratoryRevenue +
+      procedureRevenue +
+      radiologyRevenue +
+      pharmacyRevenue;
+
+    console.log(totalRev);
+    setTotalDeptRevenue(totalRev);
+  }, [departments]);
+  
+
+  console.log(totalDeptRevenue);
   return (
     <Router>
       <Topbar />
