@@ -6,7 +6,7 @@ import dayjs from "dayjs";
 import React from "react";
 import PharRevenue from "../../components/charts/PharRevenue";
 
-export const Laboratory = () => {
+export const Pharmacy = () => {
   // date picker
   const newDate = new Date();
   const [to, setTo] = React.useState(dayjs(newDate.toString()));

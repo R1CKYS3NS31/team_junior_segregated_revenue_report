@@ -11,7 +11,7 @@ import {
   Legend
 } from "recharts";
 import Title from '../Title';
-import jsonData from "../../data/revenue.json";
+import jsonData from "../../database/revenue.json";
 
 // import { indexes } from 'd3';
 
