@@ -20,31 +20,41 @@ import { Pharmacy } from "./pages/pharmacy/Pharmacy";
 
 function App() {
   const [departments, setDepartments] = useState([]);
+  // dept revenue
+  const [registrationRevenue, setRegistrationRevenue] = useState(0);
+  const [laboratoryRevenue, setLaboratoryRevenue] = useState(0);
+  const [procedureRevenue, setProcedureRevenue] = useState(0);
+  const [radiologyRevenue, setRadiologyRevenue] = useState(0);
+  const [pharmacyRevenue, setPharmacyRevenue] = useState(0);
 
-  // // get departments
-  // useEffect(() => {
-  //   const getDepartments = async () => {
-  //     try {
-  //       const res = await fetch("http://localhost:9000/department");
-  //       const jsonDepartment = await res.json();
-  //       // console.log(jsonDepartment);
-  //       setDepartments(jsonDepartment);
-  //     } catch (err) {
-  //       console.error(err);
-  //     }
-  //   };
-  //   getDepartments();
-  // }, []);
+  // get departments
+  useEffect(() => {
+    const getDepartments = async () => {
+      try {
+        const res = await fetch("http://localhost:9000/department");
+        const jsonDepartment = await res.json();
+        // console.log(jsonDepartment);
+        setDepartments(jsonDepartment);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    getDepartments();
+  }, []);
 
-  const deptRevenue = (department) =>
-    department?.reduce((amount, patient) => patient.amount_paid + amount, 0);
+  useEffect(() => {
+    // revenue calculator
+    const deptRevenue = (department) =>
+      department?.reduce((amount, patient) => patient.amount_paid + amount, 0);
 
-  const registrationRevenue = deptRevenue(departments.registration);
-  const laoboratoryRevenue = deptRevenue(departments.laboratory);
-  const proceduresRevenue = deptRevenue(departments.procedures);
-  const radiologyRevenue = deptRevenue(departments.radiology);
-  const pharmacyRevenue = deptRevenue(departments.pharmacy);
+    setRegistrationRevenue(deptRevenue(departments?.registration));
+    setLaboratoryRevenue(deptRevenue(departments?.laboratory));
+    setProcedureRevenue(deptRevenue(departments?.procedures));
+    setRadiologyRevenue(deptRevenue(departments?.radiology));
+    setPharmacyRevenue(deptRevenue(departments?.pharmacy));
+  }, [departments]);
 
+  // console.log(laboratoryRevenue);
   return (
     <Router>
       <Topbar />
