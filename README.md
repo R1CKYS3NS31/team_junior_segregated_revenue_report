@@ -1,0 +1,2 @@
+# team_junior_segregated_revenue_report
+segregated_revenue_report reactJs
