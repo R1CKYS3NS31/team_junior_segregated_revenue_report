@@ -62,13 +62,13 @@ function App() {
       pharmacyRevenue;
     setTotalDeptRevenue(totalRev);
 
-    const date = "07/2/2022"
-  departments?.registration?.filter(reg=>reg.date==date).map(reg=>console.log(reg))
+    const date = "07/2/2022";
+    departments?.registration
+      ?.filter((reg) => reg.date == date)
+      .map((reg) => console.log({ date: date, reg: reg }));
   }, [departments]);
 
-
   console.log(totalDeptRevenue);
-  
 
   return (
     <Router>
@@ -76,7 +76,20 @@ function App() {
       <div className="container">
         <SideBar />
         <Routes>
-          <Route path={"/"} exact element={<DashboardContainer />} />
+          <Route
+            path={"/"}
+            exact
+            element={
+              <DashboardContainer
+                reg={registrationRevenue}
+                lab={laboratoryRevenue}
+                proc={procedureRevenue}
+                rad={radiologyRevenue}
+                pharm={pharmacyRevenue}
+                totalDeptRevenue = {totalDeptRevenue}
+              />
+            }
+          />
           <Route path={"/workload"} element={<Workload />} />
           <Route path="/registration" element={<Registration />} />
           <Route path="/laboratory" element={<Laboratory />} />
