@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { useTheme } from '@mui/material/styles';
+import * as React from "react";
+import { useTheme } from "@mui/material/styles";
 import {
   ResponsiveContainer,
   BarChart,
@@ -8,13 +8,11 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
-  Legend
+  Legend,
 } from "recharts";
-import Title from '../Title';
-
+import Title from "../Title";
 
 // import { indexes } from 'd3';
-
 
 // Generate Sales Data
 function createData(time, amount) {
@@ -25,68 +23,62 @@ function createData(time, amount) {
 //   console.log(detail);
 // })
 
-
 // const filtered_dets = details.filter(det => {
 //   return det.userId == 1;
-// }) 
+// })
 // console.log(filtered_dets);
 
-
-
-
-
-export default function Chart({lab, reg, pharm,rad, proc}) {
+export default function Chart({ lab, reg, pharm, rad, proc }) {
   const theme = useTheme();
-  
+
   const data = [
     {
-      name: 'laboratory',
-      revenues: lab
+      name: "laboratory",
+      revenues: lab,
     },
     {
       name: "Registration",
-      revenues: reg
+      revenues: reg,
     },
     {
       name: "Pharmacy",
-      revenues: pharm
+      revenues: pharm,
     },
     {
       name: "Radiology",
-      revenues: rad
+      revenues: rad,
     },
     {
       name: "Procedures",
-      revenues: proc
-    }
+      revenues: proc,
+    },
   ];
 
- 
   return (
     <React.Fragment>
       <Title>Department Revenue</Title>
       <ResponsiveContainer>
-      <BarChart
-      width={800}
-      height={400}
-      data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5
-      }}
-    >
-      <CartesianGrid strokeDasharray="3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="revenues" fill="#8884d8" />
-      {/* <Bar dataKey="amount" fill="blue" />
+        <BarChart
+          width={800}
+          height={400}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid strokeDasharray="3" />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="revenues" fill="#8884d8" />
+          {/* <Bar dataKey="amount" fill="blue" />
       <Bar dataKey="amount" fill="yellow" />
       <Bar dataKey="amount" fill="black" /> */}
-    </BarChart>      
+        </BarChart>
       </ResponsiveContainer>
     </React.Fragment>
   );
