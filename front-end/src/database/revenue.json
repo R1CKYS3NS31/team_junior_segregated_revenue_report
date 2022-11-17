@@ -6,14 +6,16 @@
                 "patient_name": "Fred Njonge",
                 "amount_paid": 200,
                 "date": "07/3/2022",
-                "method_of_payment": "Bank"
+                "method_of_payment": "Bank",
+                "department": "registration"
             },
             {
                 "id": 2,
                 "patient_name": "Ian Odhiambo",
                 "amount_paid": 200,
                 "date": "07/2/2022",
-                "method_of_payment": "Cash"
+                "method_of_payment": "Cash",
+                "department": "registration"
             }
         ],
         "laboratory": [
@@ -22,14 +24,16 @@
                 "patient_name": "Ricky Chelagat",
                 "amount_paid": 120,
                 "date": "07/3/2022",
-                "method_of_payment": "NHIF"
+                "method_of_payment": "NHIF",
+                "department": "laboratory"
             },
             {
                 "id": 2,
                 "patient_name": "Triza Ndambuki",
                 "amount_paid": 200,
                 "date": "07/2/2022",
-                "method_of_payment": "Mpesa"
+                "method_of_payment": "Mpesa",
+                "department": "laboratory"
             }
         ],
         "procedures": [
@@ -38,14 +42,16 @@
                 "patient_name": "Agoo Clinton",
                 "amount_paid": 10,
                 "date": "07/3/2022",
-                "method_of_payment": "Bank"
+                "method_of_payment": "Bank",
+                "department": "procedures"
             },
             {
                 "id": 2,
                 "patient_name": "Wechuli Maven",
                 "amount_paid": 2200,
                 "date": "07/2/2022",
-                "method_of_payment": "Cash"
+                "method_of_payment": "Cash",
+                "department": "procedures"
             }
         ],
         "radiology": [
@@ -54,14 +60,16 @@
                 "patient_name": "Fred Otieno",
                 "amount_paid": 2000,
                 "date": "07/3/2022",
-                "method_of_payment": "Cash"
+                "method_of_payment": "Cash",
+                "department": "radiology"
             },
             {
                 "id": 2,
                 "patient_name": "Elton Ndambuki",
                 "amount_paid": 1200,
                 "date": "07/2/2022",
-                "method_of_payment": "NHIF"
+                "method_of_payment": "NHIF",
+                "department": "radiology"
             }
         ],
         "pharmacy": [
@@ -70,14 +78,16 @@
                 "patient_name": "Fred Otieno",
                 "amount_paid": 2000,
                 "date": "07/3/2022",
-                "method_of_payment": "Mpesa"
+                "method_of_payment": "Mpesa",
+                "department": "pharmacy"
             },
             {
                 "id": 2,
                 "patient_name": "Elton Ndambuki",
                 "amount_paid": 100,
                 "date": "07/2/2022",
-                "method_of_payment": "Bank"
+                "method_of_payment": "Bank",
+                "department": "pharmacy"
             }
         ]
     }

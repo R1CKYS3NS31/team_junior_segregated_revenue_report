@@ -15,11 +15,16 @@ import { PatientSummaries } from "./pages/patientSummaries/PatientSummaries";
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
 import TestComponent from "./components/test/TestComponent";
-import { ConstructionOutlined } from "@mui/icons-material";
 import { Pharmacy } from "./pages/pharmacy/Pharmacy";
 
 function App() {
   const [departments, setDepartments] = useState([]);
+  // departments
+  const [registration, setRegistration] = useState([]);
+  const [laboratory, setLaboratory] = useState([]);
+  const [procedures, setProcedures] = useState([]);
+  const [radiology, setRadiology] = useState([]);
+  const [pharmacy, setPharmacy] = useState([]);
   // dept revenue
   const [registrationRevenue, setRegistrationRevenue] = useState(0);
   const [laboratoryRevenue, setLaboratoryRevenue] = useState(0);
@@ -27,6 +32,8 @@ function App() {
   const [radiologyRevenue, setRadiologyRevenue] = useState(0);
   const [pharmacyRevenue, setPharmacyRevenue] = useState(0);
   const [totalDeptRevenue, setTotalDeptRevenue] = useState(0);
+  // patients
+  const [patients, setPatients] = useState([]);
 
   // get departments
   useEffect(() => {
@@ -36,6 +43,12 @@ function App() {
         const jsonDepartment = await res.json();
         // console.log(jsonDepartment);
         setDepartments(jsonDepartment);
+
+        setRegistration(jsonDepartment.registration);
+        setLaboratory(jsonDepartment.laboratory);
+        setProcedures(jsonDepartment.procedures);
+        setRadiology(jsonDepartment.radiology);
+        setPharmacy(jsonDepartment.pharmacy);
       } catch (err) {
         console.error(err);
       }
@@ -48,11 +61,11 @@ function App() {
     const deptRevenue = (department) =>
       department?.reduce((amount, patient) => patient.amount_paid + amount, 0);
 
-    setRegistrationRevenue(deptRevenue(departments?.registration));
-    setLaboratoryRevenue(deptRevenue(departments?.laboratory));
-    setProcedureRevenue(deptRevenue(departments?.procedures));
-    setRadiologyRevenue(deptRevenue(departments?.radiology));
-    setPharmacyRevenue(deptRevenue(departments?.pharmacy));
+    setRegistrationRevenue(deptRevenue(registration));
+    setLaboratoryRevenue(deptRevenue(laboratory));
+    setProcedureRevenue(deptRevenue(procedures));
+    setRadiologyRevenue(deptRevenue(radiology));
+    setPharmacyRevenue(deptRevenue(pharmacy));
 
     const totalRev =
       registrationRevenue +
@@ -62,13 +75,36 @@ function App() {
       pharmacyRevenue;
     setTotalDeptRevenue(totalRev);
 
+    // filtering revenue by date
     const date = "07/2/2022";
     departments?.registration
-      ?.filter((reg) => reg.date == date)
-      .map((reg) => console.log({ date: date, reg: reg }));
-  }, [departments]);
+      ?.filter((reg) => reg.date === date)
+      .map((reg) => console.log({ date: date, reg: reg })); //create for each and develope revenue for that data
+
+    setPatients([
+      ...laboratory,
+      ...registration,
+      ...procedures,
+      ...radiology,
+      ...pharmacy,
+    ]);
+    
+  }, [
+    departments,
+    laboratory,
+    laboratoryRevenue,
+    pharmacy,
+    pharmacyRevenue,
+    procedureRevenue,
+    procedures,
+    radiology,
+    radiologyRevenue,
+    registration,
+    registrationRevenue,
+  ]);
 
   console.log(totalDeptRevenue);
+  console.log(patients);
 
   return (
     <Router>
@@ -86,7 +122,7 @@ function App() {
                 proc={procedureRevenue}
                 rad={radiologyRevenue}
                 pharm={pharmacyRevenue}
-                totalDeptRevenue = {totalDeptRevenue}
+                totalDeptRevenue={totalDeptRevenue}
               />
             }
           />
