@@ -60,13 +60,16 @@ function App() {
       procedureRevenue +
       radiologyRevenue +
       pharmacyRevenue;
-
-    console.log(totalRev);
     setTotalDeptRevenue(totalRev);
+
+    const date = "07/2/2022"
+  departments?.registration?.filter(reg=>reg.date==date).map(reg=>console.log(reg))
   }, [departments]);
-  
+
 
   console.log(totalDeptRevenue);
+  
+
   return (
     <Router>
       <Topbar />
