@@ -21,9 +21,13 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import PieRechartComponent from "../../components/charts/PieComponent";
 import Total_Component from "../../components/charts/MethodPie";
+import TestComponent from "../../components/test/TestComponent";
+import PatientSummaries from "../patientSummaries/PatientSummaries";
+import Table from "../../components/table/Table";
 // import Order from "../../components/charts/Order";
 
 export const DashboardContainer = ({
+  patients,
   takeDate,
   totalRevenue,
   reg,
@@ -174,23 +178,11 @@ export const DashboardContainer = ({
               component="nav"
               aria-label="mailbox folders"
             >
-              <ListItem button>
+              {/* <ListItem button>
                 <ListItemText primary="Registration" secondary={`KES ${reg}`} />
               </ListItem>
-              <Divider />
-              <ListItem button divider>
-                <ListItemText primary="Laboratory" secondary={`KES ${lab}`} />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Procedure" secondary={`KES ${proc}`} />
-              </ListItem>
-              <Divider light />
-              <ListItem button>
-                <ListItemText primary="Radiology" secondary={`KES ${rad}`} />
-              </ListItem>
-              <ListItem button>
-                <ListItemText primary="Pharmacy" secondary={`KES ${pharm}`} />
-              </ListItem>
+              <Divider />             */}
+            
               <ListItem button>
                 <ListItemText
                   primary="TOTAL REVENUE"
@@ -201,7 +193,7 @@ export const DashboardContainer = ({
           </Paper>
         </Grid>
         {/* Chart */}
-        <Grid item xs={12} md={8} lg={5}>
+        {/* <Grid item xs={12} md={8} lg={5}>
           <Paper
             sx={{
               p: 2,
@@ -213,23 +205,20 @@ export const DashboardContainer = ({
             <Total_Component />
           </Paper>
         </Grid>
-        {/* Chart */}
-        <Grid item xs={12} md={8} lg={5}>
-          {/* < Order/> */}
-          <Paper
-            sx={{
-              p: 2,
-              display: "flex",
-              flexDirection: "row",
-              height: 290,
-            }}
-          ></Paper>
-        </Grid>
+        Chart */}
 
         {/* Recent Patients */}
         <Grid item xs={12}>
-          <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-            Patients
+          <Paper
+            sx={{
+              p: 2,
+              height: "100vh",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <h3 style={{paddingBottom:"20px"}}>Patients Summary</h3>
+            <Table patients={patients} />
           </Paper>
         </Grid>
       </Grid>

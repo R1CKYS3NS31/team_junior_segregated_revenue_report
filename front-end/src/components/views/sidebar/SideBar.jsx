@@ -76,7 +76,7 @@ export default function SideBar() {
             </ul>
           </div>
           {/* quick menu */}
-          {/* <div className="sidebarMenu">
+          <div className="sidebarMenu">
             <h3 className="sidebarTitle">Summaries</h3>
             <ul className="sidebarList">
               <Link to={"/patientsummaries"} className="link">
@@ -85,7 +85,8 @@ export default function SideBar() {
                   Patient Summaries
                 </li>
               </Link>
-              <Link to={"/departmentsummaries"} className="link">
+
+              {/* <Link to={"/departmentsummaries"} className="link">
                 <li className="sidebarListItem">
                   <AssessmentOutlined className="sidebarIcon" />
                   Department Summaries
@@ -96,9 +97,10 @@ export default function SideBar() {
                   <BarChartOutlined className="sidebarIcon" />
                   NHIF Summaries
                 </li>
-              </Link>
+              </Link> */}
+
             </ul>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

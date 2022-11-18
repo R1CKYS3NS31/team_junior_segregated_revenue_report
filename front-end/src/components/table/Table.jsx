@@ -1,11 +1,9 @@
-
 import * as React from "react";
 import {
   DataGrid,
   GridToolbarContainer,
   GridToolbarExport,
 } from "@mui/x-data-grid";
-import { useDemoData } from "@mui/x-data-grid-generator";
 
 function CustomToolbar() {
   return (
@@ -20,7 +18,7 @@ function CustomToolbar() {
   );
 }
 
-export default function TestComponent({ patients }) {
+export default function Table({ patients }) {
   // const { data, loading } = useDemoData({
   //   dataSet: "Commodity",
   //   rowLength: 4,
@@ -71,8 +69,8 @@ export default function TestComponent({ patients }) {
         // {...data}
         rows={rows}
         columns={columns}
-        pageSize={10}
-        rowsPerPageOptions={[10]}
+        pageSize={7}
+        rowsPerPageOptions={[7]}
         editMode="false"
         disableSelectionOnClick
         // loading={loading}

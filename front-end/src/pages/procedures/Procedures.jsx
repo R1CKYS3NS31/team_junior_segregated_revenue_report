@@ -1,12 +1,13 @@
-import { Button, Grid, TextField } from "@mui/material";
+import { Button, Grid, List, ListItem, ListItemText, TextField } from "@mui/material";
 import { Container } from "@mui/system";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import React from "react";
 import ProRevenue from "../../components/charts/ProRevenue";
+import Table from "../../components/table/Table";
 
-export const Procedures = () => {
+export const Procedures = ({patients, proc}) => {
   // date picker
   const newDate = new Date();
   const [to, setTo] = React.useState(dayjs(newDate.toString()));
@@ -89,6 +90,23 @@ export const Procedures = () => {
           Filter
         </Button>
       </Grid>
+      <List
+              sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+              component="nav"
+              aria-label="mailbox folders"
+            >
+              {/* <ListItem button>
+                <ListItemText primary="Registration" secondary={`KES ${reg}`} />
+              </ListItem>
+              <Divider />             */}
+            
+              <ListItem button>
+                <ListItemText
+                  primary="TOTAL REVENUE"
+                  secondary={`KES ${proc}`}
+                />
+              </ListItem>
+            </List>
 
       <Grid
         container
@@ -96,6 +114,15 @@ export const Procedures = () => {
         sx={{ justifyContent: "center", alignItems: "center" }}
       >
         <ProRevenue />
+        {/* report */}
+      </Grid>
+     
+      <Grid
+        container
+        spacing={3}
+        sx={{ justifyContent: "center", alignItems: "center" }}
+      >
+        <Table patients={patients} />
         {/* report */}
       </Grid>
     </Container>

@@ -1,80 +1,71 @@
 import React from "react";
-import { LineChart, Tooltip } from "recharts";
-import { Line, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
+import { BarChart, Tooltip } from "recharts";
+import { Bar, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
 
 const data = [
   {
     name: "Jan",
-    revenue: 4000,
+    revenue: 0,
   },
   {
     name: "Feb",
-    revenue: 3000,
+    revenue: 0,
   },
   {
     name: "Mar",
-    revenue: 9800,
+    revenue: 0,
   },
   {
     name: "Apr",
-    revenue: 3908,
+    revenue: 0,
   },
   {
     name: "May",
-    revenue: 4800,
+    revenue: 0,
   },
   {
     name: "Jun",
-    revenue: 3800,
+    revenue: 0,
   },
   {
     name: "Jul",
-    revenue: 4300,
+    revenue: 400,
   },
   {
     name: "Aug",
-    revenue: 4300,
+    revenue: 0,
   },
   {
     name: "Sep",
-    revenue: 4300,
+    revenue: 0,
+
   },
   {
     name: "Oct",
-    revenue: 4300,
+    revenue: 0,
+
   },
   {
     name: "Nov",
-    revenue: 4300,
+    revenue: 0,
   },
   {
     name: "Dec",
-    revenue: 4300,
+    revenue: 0,
   },
 ];
 
 export default function RegRevenue() {
   return (
     <>
-      <h1>Registration Revenue generated per month</h1>
-      <LineChart
-        width={800}
-        height={800}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
+      <BarChart width={600} height={400} data={data}>
+        <Bar dataKey="revenue" fill="#8884d8" />
+        <CartesianGrid stroke="#ccc" />
         <XAxis dataKey="name" />
-        <YAxis />
         <Tooltip />
         <Legend />
-        <Line dataKey="revenue" fill="#8884d8" />
-      </LineChart>
+        <YAxis />
+      </BarChart>
     </>
   );
 }
