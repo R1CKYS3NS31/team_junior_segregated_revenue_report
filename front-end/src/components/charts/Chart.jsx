@@ -59,8 +59,8 @@ export default function Chart({ lab, reg, pharm, rad, proc }) {
       <Title>Department Revenue</Title>
       <ResponsiveContainer>
         <BarChart
-          width={800}
-          height={400}
+          width={200}
+          height={700}
           data={data}
           margin={{
             top: 5,

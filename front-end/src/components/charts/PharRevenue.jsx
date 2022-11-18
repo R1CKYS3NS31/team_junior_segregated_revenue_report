@@ -58,7 +58,7 @@ export default function RegRevenue() {
     <>
       <h1>Pharmacy revenue generated per month</h1>
       <LineChart
-        width={800}
+        width={400}
         height={800}
         data={data}
         margin={{

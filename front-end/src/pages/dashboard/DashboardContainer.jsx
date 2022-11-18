@@ -36,11 +36,7 @@ export const DashboardContainer = ({
   setRad,
   pharm,
   setPharm,
-  RadiologyFilterTotal,
-  ProcedureFilterTotal,
-  RegistrationFilterTotal,
-  PharmacyFilterTotal,
-  LaboratoryFilterTotal,
+  Datefilter
 }) => {
   function Copyright(props) {
     return (
@@ -68,24 +64,13 @@ export const DashboardContainer = ({
   const handlesubmit = (e) => {
     e.preventDefault();
 
-    const dateFrom = `${from.$d.getDate()}-${from.$d.getMonth()}-${from.$d.getFullYear()}`;
-    const dateTo = `${to.$d.getDate()}-${to.$d.getMonth()}-${to.$d.getFullYear()}`;
+    const dateFrom = `${from.$d.getFullYear()}-${from.$d.getMonth()}-${from.$d.getDate()}`;
+    const dateTo = `${to.$d.getFullYear()}-${to.$d.getMonth()}-${to.$d.getDate()}`
 
-    takeDate(dateTo, dateFrom);
+    takeDate(dateFrom, dateTo);
+    Datefilter()
+    console.log(dateFrom, dateTo)
 
-    setReg(RegistrationFilterTotal);
-    setPharm(PharmacyFilterTotal);
-    setRad(RadiologyFilterTotal);
-    setProc(ProcedureFilterTotal);
-    setLab(LaboratoryFilterTotal);
-
-    console.log(RegistrationFilterTotal);
-    console.log(PharmacyFilterTotal);
-    console.log(RadiologyFilterTotal);
-    console.log(ProcedureFilterTotal);
-    console.log(LaboratoryFilterTotal);
-
-    // window.location.reload()
   };
 
   return (
