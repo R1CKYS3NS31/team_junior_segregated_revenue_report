@@ -22,6 +22,8 @@ import dayjs from "dayjs";
 import PieRechartComponent from "../../components/charts/PieComponent";
 import Total_Component from "../../components/charts/MethodPie";
 import TestComponent from "../../components/test/TestComponent";
+import PatientSummaries from "../patientSummaries/PatientSummaries";
+import Table from "../../components/table/Table";
 // import Order from "../../components/charts/Order";
 
 export const DashboardContainer = ({
@@ -231,13 +233,19 @@ export const DashboardContainer = ({
           </Paper>
         </Grid>
         Chart */}
-        
 
         {/* Recent Patients */}
         <Grid item xs={12}>
-          <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
+          <Paper
+            sx={{
+              p: 2,
+              height: "100vh",
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
             <h3>Patients Summarry</h3>
-            <TestComponent patients={patients}/>
+            <Table patients={patients} />
           </Paper>
         </Grid>
       </Grid>

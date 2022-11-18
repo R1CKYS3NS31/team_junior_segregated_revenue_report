@@ -19,7 +19,7 @@ function CustomToolbar() {
   );
 }
 
-export default function TestComponent({ patients }) {
+export default function Table({ patients }) {
   // const { data, loading } = useDemoData({
   //   dataSet: "Commodity",
   //   rowLength: 4,

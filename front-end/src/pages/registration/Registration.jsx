@@ -5,8 +5,9 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import React from "react";
 import RegRevenue from "../../components/charts/RegRevenue";
+import Table from "../../components/table/Table";
 
-export const Registration = () => {
+export const Registration = ({ patients }) => {
   // date picker
   const newDate = new Date();
   const [to, setTo] = React.useState(dayjs(newDate.toString()));
@@ -96,6 +97,14 @@ export const Registration = () => {
         sx={{ justifyContent: "center", alignItems: "center" }}
       >
         <RegRevenue />
+        {/* report */}
+      </Grid>
+      <Grid
+        container
+        spacing={3}
+        sx={{ justifyContent: "center", alignItems: "center" }}
+      >
+        <Table patients={patients} />
         {/* report */}
       </Grid>
     </Container>

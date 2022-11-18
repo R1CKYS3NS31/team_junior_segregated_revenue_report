@@ -11,12 +11,11 @@ import { Registration } from "./pages/registration/Registration";
 import { Laboratory } from "./pages/laboratory/Laboratory";
 import { Procedures } from "./pages/procedures/Procedures";
 import { Radiology } from "./pages/radiology/Radiology";
-
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
 import TestComponent from "./components/test/TestComponent";
 import { Pharmacy } from "./pages/pharmacy/Pharmacy";
-
+import {PatientSummaries} from "./pages/patientSummaries/PatientSummaries";
 
 function App() {
   const [departments, setDepartments] = useState([]);
@@ -80,7 +79,7 @@ function App() {
     const date = "07/2/2022";
     departments?.registration
       ?.filter((reg) => reg.date === date)
-      .map((reg) => console.log({ date: date, reg:reg })); //create for each and develope revenue for that data
+      .map((reg) => console.log({ date: date, reg: reg })); //create for each and develope revenue for that data
 
     setPatients([
       ...laboratory,
@@ -89,7 +88,6 @@ function App() {
       ...radiology,
       ...pharmacy,
     ]);
-    
   }, [
     departments,
     laboratory,
@@ -129,18 +127,36 @@ function App() {
             }
           />
           <Route path={"/workload"} element={<Workload />} />
-          <Route path="/registration" element={<Registration registration={registration}/>} />
-          <Route path="/laboratory" element={<Laboratory />} />
-          <Route path="/procedures" element={<Procedures />} />
-          <Route path="/radiology" element={<Radiology />} />
-          <Route path="/pharmacy" element={<Pharmacy />} />
-          <Route path="/patientsummaries" element={<TestComponent />} />
+          <Route
+            path="/registration"
+            element={<Registration patients={registration} />}
+          />
+          <Route
+            path="/laboratory"
+            element={<Laboratory patients={laboratory} />}
+          />
+          <Route
+            path="/procedures"
+            element={<Procedures patients={procedures} />}
+          />
+          <Route
+            path="/radiology"
+            element={<Radiology patients={radiology} />}
+          />
+          <Route path="/pharmacy" element={<Pharmacy patients={pharmacy} />} />
+          <Route
+            path="/patientsummaries"
+            element={<PatientSummaries patients={patients} />}
+          />
           <Route
             path="/departmentsummaries"
             element={<DepartmentSummaries />}
           />
           <Route path="/nhifsummaries" element={<NHIFSummaries />} />
-          <Route path="/test" element={<TestComponent patients={patients}/>} />
+          <Route
+            path="/test"
+            element={<TestComponent patients={laboratory} />}
+          />
 
           {/* none existing routes */}
           <Route

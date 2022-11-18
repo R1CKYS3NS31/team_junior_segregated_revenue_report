@@ -5,8 +5,9 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import React from "react";
 import RadioRevenue from "../../components/charts/RadioRevenue";
+import Table from "../../components/table/Table";
 
-export const Radiology = () => {
+export const Radiology = ({patients}) => {
   // date picker
   const newDate = new Date();
   const [to, setTo] = React.useState(dayjs(newDate.toString()));
@@ -96,6 +97,14 @@ export const Radiology = () => {
         sx={{ justifyContent: "center", alignItems: "center" }}
       >
         <RadioRevenue />
+        {/* report */}
+      </Grid>
+      <Grid
+        container
+        spacing={3}
+        sx={{ justifyContent: "center", alignItems: "center" }}
+      >
+        <Table patients={patients} />
         {/* report */}
       </Grid>
     </Container>
