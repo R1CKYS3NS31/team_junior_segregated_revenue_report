@@ -1,6 +1,6 @@
 import React from "react";
-import { LineChart, Tooltip } from "recharts";
-import { Line, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
+import { BarChart, Tooltip } from "recharts";
+import { Bar, XAxis, YAxis, CartesianGrid, Legend } from "recharts";
 
 const data = [
   {
@@ -57,24 +57,14 @@ export default function RegRevenue() {
   return (
     <>
       <h1>Pharmacy revenue generated per month</h1>
-      <LineChart
-        width={800}
-        height={800}
-        data={data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
+        <BarChart width={600} height={600} data={data}>
+        <Bar dataKey="revenue" fill="#8884d8" />
+        <CartesianGrid stroke="#ccc" />
         <XAxis dataKey="name" />
-        <YAxis />
         <Tooltip />
         <Legend />
-        <Line dataKey="revenue" fill="#8884d8" />
-      </LineChart>
+        <YAxis />
+      </BarChart>
     </>
   );
 }
