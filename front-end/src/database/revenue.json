@@ -20,7 +20,7 @@
         ],
         "laboratory": [
             {
-                "id": 1,
+                "id": 3,
                 "patient_name": "Ricky Chelagat",
                 "amount_paid": 120,
                 "date": "07/3/2022",
@@ -28,7 +28,7 @@
                 "department": "laboratory"
             },
             {
-                "id": 2,
+                "id": 4,
                 "patient_name": "Triza Ndambuki",
                 "amount_paid": 200,
                 "date": "07/2/2022",
@@ -38,7 +38,7 @@
         ],
         "procedures": [
             {
-                "id": 1,
+                "id": 5,
                 "patient_name": "Agoo Clinton",
                 "amount_paid": 10,
                 "date": "07/3/2022",
@@ -46,7 +46,7 @@
                 "department": "procedures"
             },
             {
-                "id": 2,
+                "id": 6,
                 "patient_name": "Wechuli Maven",
                 "amount_paid": 2200,
                 "date": "07/2/2022",
@@ -56,7 +56,7 @@
         ],
         "radiology": [
             {
-                "id": 1,
+                "id": 7,
                 "patient_name": "Fred Otieno",
                 "amount_paid": 2000,
                 "date": "07/3/2022",
@@ -64,7 +64,7 @@
                 "department": "radiology"
             },
             {
-                "id": 2,
+                "id": 8,
                 "patient_name": "Elton Ndambuki",
                 "amount_paid": 1200,
                 "date": "07/2/2022",
@@ -74,7 +74,7 @@
         ],
         "pharmacy": [
             {
-                "id": 1,
+                "id": 9,
                 "patient_name": "Fred Otieno",
                 "amount_paid": 2000,
                 "date": "07/3/2022",
@@ -82,7 +82,7 @@
                 "department": "pharmacy"
             },
             {
-                "id": 2,
+                "id": 10,
                 "patient_name": "Elton Ndambuki",
                 "amount_paid": 100,
                 "date": "07/2/2022",

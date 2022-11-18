@@ -76,7 +76,7 @@ export default function SideBar() {
             </ul>
           </div>
           {/* quick menu */}
-          {/* <div className="sidebarMenu">
+          <div className="sidebarMenu">
             <h3 className="sidebarTitle">Summaries</h3>
             <ul className="sidebarList">
               <Link to={"/patientsummaries"} className="link">
@@ -98,7 +98,7 @@ export default function SideBar() {
                 </li>
               </Link>
             </ul>
-          </div> */}
+          </div>
         </div>
       </div>
     </div>

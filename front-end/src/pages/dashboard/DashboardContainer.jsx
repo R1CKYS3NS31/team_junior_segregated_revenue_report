@@ -21,9 +21,12 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import PieRechartComponent from "../../components/charts/PieComponent";
 import Total_Component from "../../components/charts/MethodPie";
+import TestComponent from "../../components/test/TestComponent";
+import PatientSummaries from "../patientSummaries/PatientSummaries";
 // import Order from "../../components/charts/Order";
 
 export const DashboardContainer = ({
+  patients,
   takeDate,
   totalRevenue,
   reg,
@@ -216,7 +219,7 @@ export const DashboardContainer = ({
           </Paper>
         </Grid>
         {/* Chart */}
-        <Grid item xs={12} md={8} lg={5}>
+        {/* <Grid item xs={12} md={8} lg={5}>
           <Paper
             sx={{
               p: 2,
@@ -228,23 +231,14 @@ export const DashboardContainer = ({
             <Total_Component />
           </Paper>
         </Grid>
-        {/* Chart */}
-        <Grid item xs={12} md={8} lg={5}>
-          {/* < Order/> */}
-          <Paper
-            sx={{
-              p: 2,
-              display: "flex",
-              flexDirection: "row",
-              height: 290,
-            }}
-          ></Paper>
-        </Grid>
+        Chart */}
+        
 
         {/* Recent Patients */}
         <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-            Patients
+            <h3>Patients Summarry</h3>
+            <PatientSummaries patients={patients}/>
           </Paper>
         </Grid>
       </Grid>

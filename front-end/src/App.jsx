@@ -11,7 +11,7 @@ import { Registration } from "./pages/registration/Registration";
 import { Laboratory } from "./pages/laboratory/Laboratory";
 import { Procedures } from "./pages/procedures/Procedures";
 import { Radiology } from "./pages/radiology/Radiology";
-import { PatientSummaries } from "./pages/patientSummaries/PatientSummaries";
+import  PatientSummaries  from "./pages/patientSummaries/PatientSummaries";
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
 import TestComponent from "./components/test/TestComponent";
@@ -79,7 +79,7 @@ function App() {
     const date = "07/2/2022";
     departments?.registration
       ?.filter((reg) => reg.date === date)
-      .map((reg) => console.log({ date: date, reg: reg })); //create for each and develope revenue for that data
+      .map((reg) => console.log({ date: date, reg:reg })); //create for each and develope revenue for that data
 
     setPatients([
       ...laboratory,
@@ -123,6 +123,7 @@ function App() {
                 rad={radiologyRevenue}
                 pharm={pharmacyRevenue}
                 totalRevenue={totalDeptRevenue}
+                patients={patients}
               />
             }
           />
