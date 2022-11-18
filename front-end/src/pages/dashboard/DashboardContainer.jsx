@@ -22,7 +22,6 @@ import dayjs from "dayjs";
 import PieRechartComponent from "../../components/charts/PieComponent";
 import Total_Component from "../../components/charts/MethodPie";
 import TestComponent from "../../components/test/TestComponent";
-import PatientSummaries from "../patientSummaries/PatientSummaries";
 // import Order from "../../components/charts/Order";
 
 export const DashboardContainer = ({
@@ -55,7 +54,7 @@ export const DashboardContainer = ({
       >
         {"Copyright © "}
         <Link color="inherit" href="/">
-          revenue report
+          Your Website
         </Link>
         {new Date().getFullYear()}
         {"."}
@@ -235,10 +234,10 @@ export const DashboardContainer = ({
         
 
         {/* Recent Patients */}
-        <Grid item xs={20}>
+        <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
             <h3>Patients Summarry</h3>
-            <PatientSummaries patients={patients}/>
+            <TestComponent patients={patients}/>
           </Paper>
         </Grid>
       </Grid>

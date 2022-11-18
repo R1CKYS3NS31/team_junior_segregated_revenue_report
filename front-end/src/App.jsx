@@ -11,11 +11,12 @@ import { Registration } from "./pages/registration/Registration";
 import { Laboratory } from "./pages/laboratory/Laboratory";
 import { Procedures } from "./pages/procedures/Procedures";
 import { Radiology } from "./pages/radiology/Radiology";
-import  PatientSummaries  from "./pages/patientSummaries/PatientSummaries";
+
 import { DepartmentSummaries } from "./pages/departmentSummaries/DepartmentSummaries";
 import { NHIFSummaries } from "./pages/nhifSummaries/NHIFSummaries";
 import TestComponent from "./components/test/TestComponent";
 import { Pharmacy } from "./pages/pharmacy/Pharmacy";
+
 
 function App() {
   const [departments, setDepartments] = useState([]);
@@ -128,18 +129,18 @@ function App() {
             }
           />
           <Route path={"/workload"} element={<Workload />} />
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/registration" element={<Registration registration={registration}/>} />
           <Route path="/laboratory" element={<Laboratory />} />
           <Route path="/procedures" element={<Procedures />} />
           <Route path="/radiology" element={<Radiology />} />
           <Route path="/pharmacy" element={<Pharmacy />} />
-          <Route path="/patientsummaries" element={<PatientSummaries />} />
+          <Route path="/patientsummaries" element={<TestComponent />} />
           <Route
             path="/departmentsummaries"
             element={<DepartmentSummaries />}
           />
           <Route path="/nhifsummaries" element={<NHIFSummaries />} />
-          <Route path="/test" element={<TestComponent />} />
+          <Route path="/test" element={<TestComponent patients={patients}/>} />
 
           {/* none existing routes */}
           <Route
