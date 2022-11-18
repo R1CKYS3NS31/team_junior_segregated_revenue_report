@@ -55,7 +55,7 @@ export const DashboardContainer = ({
       >
         {"Copyright © "}
         <Link color="inherit" href="/">
-          Your Website
+          revenue report
         </Link>
         {new Date().getFullYear()}
         {"."}
@@ -235,7 +235,7 @@ export const DashboardContainer = ({
         
 
         {/* Recent Patients */}
-        <Grid item xs={12}>
+        <Grid item xs={20}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
             <h3>Patients Summarry</h3>
             <PatientSummaries patients={patients}/>
