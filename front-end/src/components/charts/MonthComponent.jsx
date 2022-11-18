@@ -10,17 +10,14 @@ import {
 } from "recharts";
 
 class MonthComponent extends React.Component {
-  constructor (props){
-    super(props)
-  }
   data = [
     {
       name: "Jan 2019",
-      Laboratory: lab,
-      Registration: reg,
-      Pharmacy: pharm,
-      Radiology: rad,
-      Procedures: proc,
+      Laboratory: 23445,
+      Registration: 2356,
+      Pharmacy: 240,
+      Radiology: 150,
+      Procedures: 344,
     },
     {
       name: "Feb 2019",
