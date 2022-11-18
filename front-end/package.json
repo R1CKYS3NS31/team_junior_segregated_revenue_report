@@ -8,6 +8,7 @@
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.13",
     "@mui/x-data-grid": "^5.17.11",
+    "@mui/x-data-grid-generator": "^5.17.12",
     "@mui/x-date-pickers": "^5.0.8",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",

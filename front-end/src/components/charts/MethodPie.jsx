@@ -55,32 +55,32 @@ class MethodPie extends React.Component {
 
   render() {
     return (
-      <PieChart
-        width={260}
-        height={300}
-        display={"flex"}
-        style={{ justifyContent: "center" }}
-      >
-        <Pie
-          data={this.pieData}
-          color="#000000"
-          dataKey="value"
-          nameKey="name"
-          cx="50%"
-          cy="50%"
-          outerRadius={120}
-          fill="#8884d8"
+      <ResponsiveContainer>
+        <PieChart width={730} height={300}
+          display={"flex"}
+          style={{ justifyContent: "center" }}
         >
-          {this.pieData.map((entry, index) => (
-            <Cell
-              key={`cell-${index}`}
-              fill={this.COLORS[index % this.COLORS.length]}
-            />
-          ))}
-        </Pie>
-        <Tooltip content={<this.CustomTooltip />} />
-        <Legend />
-      </PieChart>
+          <Pie
+            data={this.pieData}
+            color="#000000"
+            dataKey="value"
+            nameKey="name"
+            cx="50%"
+            cy="50%"
+            outerRadius={120}
+            fill="#8884d8"
+          >
+            {this.pieData.map((entry, index) => (
+              <Cell
+                key={`cell-${index}`}
+                fill={this.COLORS[index % this.COLORS.length]}
+              />
+            ))}
+          </Pie>
+          <Tooltip content={<this.CustomTooltip />} />
+          <Legend />
+        </PieChart>
+      </ResponsiveContainer>
     );
   }
 }

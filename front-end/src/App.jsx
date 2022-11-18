@@ -122,7 +122,7 @@ function App() {
                 proc={procedureRevenue}
                 rad={radiologyRevenue}
                 pharm={pharmacyRevenue}
-                totalDeptRevenue={totalDeptRevenue}
+                totalRevenue={totalDeptRevenue}
               />
             }
           />

@@ -4,7 +4,6 @@ import Grid from "@mui/material/Grid";
 import Paper from "@mui/material/Paper";
 import Chart from "../../components/charts/Chart";
 import Deposits from "../../components/Deposits";
-import { Patients } from "../../components/Patients";
 
 import {
   Box,
@@ -26,7 +25,7 @@ import Total_Component from "../../components/charts/MethodPie";
 
 export const DashboardContainer = ({
   takeDate,
-  grandTotal,
+  totalRevenue,
   reg,
   setReg,
   lab,
@@ -68,32 +67,25 @@ export const DashboardContainer = ({
 
   const handlesubmit = (e) => {
     e.preventDefault();
-   
-   
-   
-    const dateFrom = `${from.$d.getDate()}-${from.$d.getMonth()}-${from.$d.getFullYear()}`
-    const dateTo = `${to.$d.getDate()}-${to.$d.getMonth()}-${to.$d.getFullYear()}`
 
-    takeDate(dateTo,dateFrom)
- 
+    const dateFrom = `${from.$d.getDate()}-${from.$d.getMonth()}-${from.$d.getFullYear()}`;
+    const dateTo = `${to.$d.getDate()}-${to.$d.getMonth()}-${to.$d.getFullYear()}`;
 
-    setReg(RegistrationFilterTotal)
-    setPharm(PharmacyFilterTotal)
-    setRad(RadiologyFilterTotal)
-    setProc(ProcedureFilterTotal)
-    setLab(LaboratoryFilterTotal)
-    
-    console.log(RegistrationFilterTotal)
-    console.log(PharmacyFilterTotal)
-    console.log(RadiologyFilterTotal)
-    console.log(ProcedureFilterTotal)
-    console.log(LaboratoryFilterTotal)
+    takeDate(dateTo, dateFrom);
+
+    setReg(RegistrationFilterTotal);
+    setPharm(PharmacyFilterTotal);
+    setRad(RadiologyFilterTotal);
+    setProc(ProcedureFilterTotal);
+    setLab(LaboratoryFilterTotal);
+
+    console.log(RegistrationFilterTotal);
+    console.log(PharmacyFilterTotal);
+    console.log(RadiologyFilterTotal);
+    console.log(ProcedureFilterTotal);
+    console.log(LaboratoryFilterTotal);
 
     // window.location.reload()
-
-
-    
-
   };
 
   return (
@@ -118,34 +110,34 @@ export const DashboardContainer = ({
               From:
             </label>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              openTo="year"
-              views={["year", "month", "day"]}
-              label="Year, month and date"
-              value={from}
-              onChange={(newValue) => setFrom(newValue)}
-              renderInput={(params) => (
-                <TextField {...params} helperText={null} />
-              )}
-            />
-          </LocalizationProvider>
+              <DatePicker
+                openTo="year"
+                views={["year", "month", "day"]}
+                label="Year, month and date"
+                value={from}
+                onChange={(newValue) => setFrom(newValue)}
+                renderInput={(params) => (
+                  <TextField {...params} helperText={null} />
+                )}
+              />
+            </LocalizationProvider>
           </div>
           <div className="to" style={{ paddingLeft: "10px", flex: 2 }}>
             <label htmlFor="to" style={{ paddingRight: "5px" }}>
               To:
             </label>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <DatePicker
-              openTo="year"
-              views={["year", "month", "day"]}
-              label="Year, month and date"
-              value={to}
-              onChange={(newValue) => setTo(newValue)}
-              renderInput={(params) => (
-                <TextField {...params} helperText={null} />
-              )}
-            />
-          </LocalizationProvider>
+              <DatePicker
+                openTo="year"
+                views={["year", "month", "day"]}
+                label="Year, month and date"
+                value={to}
+                onChange={(newValue) => setTo(newValue)}
+                renderInput={(params) => (
+                  <TextField {...params} helperText={null} />
+                )}
+              />
+            </LocalizationProvider>
           </div>
           <Button
             type="submit"
@@ -177,10 +169,10 @@ export const DashboardContainer = ({
             }}
           >
             {/* <MonthComponent reg={reg} pharm={pharm} lab={lab} rad={rad} proc={proc}/> */}
-            <Chart lab={lab} proc={proc} rad={rad} pharm={pharm} reg={reg}/>
-           
+            <Chart lab={lab} proc={proc} rad={rad} pharm={pharm} reg={reg} />
           </Paper>
         </Grid>
+
         {/* Recent Revenue */}
         <Grid item xs={12} md={4} lg={3}>
           <Paper
@@ -190,9 +182,7 @@ export const DashboardContainer = ({
               flexDirection: "column",
               // height: '100%',
             }}
-            
           >
-            
             {/* <Departments /> */}
             <List
               sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
@@ -200,29 +190,33 @@ export const DashboardContainer = ({
               aria-label="mailbox folders"
             >
               <ListItem button>
-                <ListItemText primary="Registration" secondary={reg} />
+                <ListItemText primary="Registration" secondary={`KES ${reg}`} />
               </ListItem>
               <Divider />
               <ListItem button divider>
-                <ListItemText primary="Laboratory" secondary={lab} />
+                <ListItemText primary="Laboratory" secondary={`KES ${lab}`} />
               </ListItem>
               <ListItem button>
-                <ListItemText primary="Procedure" secondary={proc} />
+                <ListItemText primary="Procedure" secondary={`KES ${proc}`} />
               </ListItem>
               <Divider light />
               <ListItem button>
-                <ListItemText primary="Radiology" secondary={rad} />
+                <ListItemText primary="Radiology" secondary={`KES ${rad}`} />
               </ListItem>
               <ListItem button>
-                <ListItemText primary="Pharmacy" secondary={pharm} />
+                <ListItemText primary="Pharmacy" secondary={`KES ${pharm}`} />
+              </ListItem>
+              <ListItem button>
+                <ListItemText
+                  primary="TOTAL REVENUE"
+                  secondary={`KES ${totalRevenue}`}
+                />
               </ListItem>
             </List>
-            
           </Paper>
         </Grid>
-        <Total_Component />
         {/* Chart */}
-        <Grid item xs={12} md={8} lg={9}>
+        <Grid item xs={12} md={8} lg={5}>
           <Paper
             sx={{
               p: 2,
@@ -231,7 +225,8 @@ export const DashboardContainer = ({
               height: 240,
             }}
           >
-              </Paper>
+            <Total_Component />
+          </Paper>
         </Grid>
         {/* Chart */}
         <Grid item xs={12} md={8} lg={5}>
@@ -243,31 +238,15 @@ export const DashboardContainer = ({
               flexDirection: "row",
               height: 290,
             }}
-          >
-        
-          </Paper>
-        </Grid>
-
-        {/* Chart */}
-        <Grid item xs={12} md={8} lg={5}>
-          <Paper
-            sx={{
-              p: 2,
-              display: "flex",
-              flexDirection: "column",
-              height: 290,
-            }}
-          >
-           
-          </Paper>
+          ></Paper>
         </Grid>
 
         {/* Recent Patients */}
-        {/* <Grid item xs={12}>
+        <Grid item xs={12}>
           <Paper sx={{ p: 2, display: "flex", flexDirection: "column" }}>
-            <Patients />
+            Patients
           </Paper>
-        </Grid> */}
+        </Grid>
       </Grid>
       <Copyright sx={{ pt: 4 }} />
     </Container>
